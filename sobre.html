@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nhandereko - Sobre</title>
+    <style>
+        /* Estilos Globais */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f5f0;
+            color: #333;
+            box-sizing: border-box;
+        }
+
+        /* Container Principal */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Estilo da imagem no topo */
+        .header-image {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Menu Superior */
+        header {
+            background-color: #8c2f1f;
+            padding: 15px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            display: flex; /* Adicionado para usar flexbox no header */
+            justify-content: center; /* Centraliza horizontalmente */
+            align-items: center; /* Centraliza verticalmente */
+        }
+
+        .logo {
+            font-size: 2em;
+            font-weight: bold;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .menu-principal ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .menu-principal li {
+            margin-left: 20px;
+        }
+
+        .menu-principal a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px 15px;
+            display: block;
+            transition: background-color 0.3s;
+        }
+
+        .menu-principal a:hover {
+            background-color: #a34234;
+            border-radius: 5px;
+        }
+        
+        /* Menu de Opções (Hospedagem, Passeios, Artesanatos) */
+        .options-menu {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 20px;
+            gap: 20px;
+            background-color: #f0f0f0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .option-button {
+            display: inline-block;
+            background-color: #5a251b;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+
+        .option-button:hover {
+            background-color: #7d3329;
+            transform: translateY(-3px);
+        }
+
+        /* Estilo para o conteúdo principal */
+        main {
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        h1 {
+            color: #5a251b;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .volunturismo-image {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            border-radius: 8px;
+            margin: 20px 0;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        /* Rodapé */
+        footer {
+            background-color: #8c2f1f;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .social-icons a {
+            color: #fff;
+            font-size: 1.5em;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: #d1d1d1;
+        }
+
+        .copyright {
+            margin-top: 10px;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo">Nhandereko</a>
+            <nav class="menu-principal">
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="cadastro.html">Cadastro</a></li>
+                    <li><a href="sobre.html">Sobre</a></li>
+                    <li><a href="faleconosco.html">Fale Conosco</a></li>
+                    <li><a href="etnoturismo.html">Etnoturismo</a></li>
+                    <li><a href="galeria.html">Galeria de Fotos</a></li>
+                    <li><a href="volunturismo.html">Volunturismo</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="options-menu">
+        <a href="#" class="option-button">Hospedagem</a>
+        <a href="#" class="option-button">Passeios</a>
+        <a href="#" class="option-button">Artesanatos</a>
+    </div>
+
+    <main>
+        <div class="container">
+            <h1>Sobre o Nhandereko</h1>
+            <p>
+                Em tradução simples, Nhandereko ou Nhanderekó significa "modo de vida do povo guarani".
+            </p>
+            <p>
+                Representa onde a vida está e o relacionamento da vida com tudo que existe: os corpos, o espaço e o ambiente. Assim, Nhandereko está interligado com todo o território, que para o povo Guarani representa a vida, contemplando todos os seres vivos, florestas, rios, plantas e animais.
+            </p>
+            <img src="nhandereko.png" alt="Pessoas e artesanato do povo Guarani" class="volunturismo-image">
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="social-icons">
+                <a href="#" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" target="_blank" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+            </div>
+            
+            <p class="copyright">&copy; 2024 Nhandereko. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
