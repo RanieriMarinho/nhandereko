@@ -140,6 +140,26 @@
             margin-top: 10px;
         }
 
+        /* Chatbot GIF */
+        .chatbot-container {
+            position: fixed;
+            bottom: 80px; /* Alinha o contêiner duas linhas acima do rodapé */
+            right: 20px;
+            text-align: center; /* Centraliza o texto e a imagem */
+            z-index: 1000;
+        }
+
+        .chatbot-container p {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .chatbot-gif {
+            width: 100px;
+            height: auto;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -176,6 +196,13 @@
             </p>
         </div>
     </main>
+
+    <div class="chatbot-container">
+        <p>Fale Comigo!</p>
+        <a href="https://t.me/nhanderebot" target="_blank">
+            <img src="chatbot.gif" alt="Ícone de chatbot" class="chatbot-gif">
+        </a>
+    </div>
 
     <footer>
         <div class="container">
