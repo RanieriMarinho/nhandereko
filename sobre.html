@@ -5,10 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nhandereko - Sobre</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         /* Estilos Globais */
         body {
-            font-family: Arial, sans-serif;
+            /* CORRIGIDO: Font-family para Roboto */
+            font-family: 'Roboto', Arial, sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f8f5f0;
@@ -24,6 +26,13 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+        }
+        
+        /* ADICIONADO: Estilo da imagem no topo para a mesma configuração que index.html */
+        .header-image {
+            width: 100%;
+            height: auto;
+            display: block;
         }
 
         /* Menu Superior */
@@ -231,6 +240,8 @@
     </style>
 </head>
 <body>
+    
+    <img src="FAIXA4_BRANCA.png" alt="Padrão cultural Guarani" class="header-image"> 
 
     <header>
         <div class="container">
@@ -260,8 +271,8 @@
 
     <div class="options-menu">
         <a href="hospedagem.html" class="option-button">Visitações</a>
-        <a href="#" class="option-button">Passeios</a>
-        <a href="#" class="option-button">Artesanatos</a>
+        <a href="passeios.html" class="option-button">Passeios</a>
+        <a href="artesanatos.html" class="option-button">Artesanatos</a>
         
         <a href="#" class="option-button chatbot-button" id="chatbot-gif">
             <p style="margin: 0; font-weight: bold;">Fale Comigo!</p>

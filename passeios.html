@@ -3,18 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nhandereko</title>
+    <title>Nhandereko - Passeios na Aldeia</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         /* Estilos Globais */
         body {
-            font-family: 'Roboto', Arial, sans-serif;
+            font-family: 'Roboto', Arial, sans-serif; 
             margin: 0;
             padding: 0;
             background-color: #f8f5f0;
             color: #333;
             box-sizing: border-box;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
         /* Container Principal */
@@ -23,7 +26,7 @@
             margin: 0 auto;
             padding: 0 20px;
         }
-
+        
         /* Estilo da imagem no topo */
         .header-image {
             width: 100%;
@@ -44,7 +47,7 @@
             align-items: center;
             flex-wrap: wrap;
         }
-
+        
         /* Estilos do Cabeçalho (Reduzidos em 20% - conforme definido em etapas anteriores) */
         .nav-and-social {
             display: flex;
@@ -98,7 +101,7 @@
             color: #e9b384;
         }
 
-        /* Menu de Opções (Novo estilo para botões) */
+        /* Menu de Opções */
         .options-menu {
             display: flex;
             justify-content: center;
@@ -130,72 +133,91 @@
         .chatbot-button {
             display: flex;
             align-items: center;
-            gap: 8px; /* Espaço entre o texto e o ícone GIF */
+            gap: 8px; 
             cursor: pointer;
         }
         
         .chatbot-gif-icon {
-            width: 25px; /* Tamanho menor para encaixar no menu */
+            width: 25px; 
             height: 25px;
             border-radius: 50%;
         }
 
         /* Conteúdo Principal */
         main {
+            flex-grow: 1;
             padding: 40px 0;
-        }
-
-        main h1 {
-            color: #8c2f1f;
+            width: 100%;
             text-align: center;
         }
         
+        main h1 {
+            color: #8c2f1f;
+            margin-bottom: 20px;
+        }
+
         main p {
             font-size: 1.1em;
             line-height: 1.6;
+            max-width: 900px;
+            margin: 20px auto;
             text-align: justify;
         }
 
-        .content-image-center {
-            display: block;
-            max-width: 100%;
-            height: auto;
-            margin: 20px auto; /* Centraliza a imagem */
+        .passeio-section {
+            background-color: #fff;
+            padding: 30px;
             border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 30px 0;
+        }
+
+        .passeio-section h2 {
+            color: #6a2419;
+            border-bottom: 2px solid #8c2f1f;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .passeio-section ul {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+            columns: 2; /* Divide a lista em duas colunas em telas maiores */
         }
         
+        .passeio-section li {
+            margin-bottom: 15px;
+            font-weight: 500;
+            color: #444;
+        }
+        
+        .passeio-section li::before {
+            content: "•";
+            color: #8c2f1f;
+            font-weight: bold;
+            display: inline-block; 
+            width: 1em;
+            margin-left: -1em;
+        }
+
         /* Rodapé */
         footer {
             background-color: #6a2419;
             color: #fff;
             padding: 20px 0;
             text-align: center;
+            margin-top: auto;
             width: 100%;
-            margin-top: 30px; 
-        }
-
-        .social-icons {
-            margin-bottom: 15px;
-        }
-
-        .social-icons a {
-            color: #fff;
-            font-size: 1.5em;
-            margin: 0 10px;
-            transition: color 0.3s;
-        }
-
-        .social-icons a:hover {
-            color: #e9b384;
         }
 
         .copyright {
             margin-top: 10px;
         }
-
+        
         /* Pop-up Style */
         .popup-container {
-            display: none; /* Inicia oculto */
+            display: none; 
             position: fixed;
             z-index: 1001;
             left: 0;
@@ -288,23 +310,38 @@
 
     <main>
         <div class="container">
-            <h1>Bem-vindo ao Nhandereko</h1>
+            <h1>A Jornada do Conhecimento: Passeios na Aldeia</h1>
+            
             <p>
-                Este é o espaço dedicado à filosofia de vida do povo Guarani. Explore a riqueza de sua cultura, seus rituais, artesanato e a conexão profunda com a natureza.
-                <img src="FOTOS_DIVERSAS_DE_INDIGENAS.png" alt="Fotos de indígenas com pinturas corporais e artesanato" class="content-image-center">
+                Convidamos você a vivenciar o **Nhandereko** (o modo de ser Guarani) de forma imersiva e respeitosa. Nossos passeios são projetados para oferecer uma troca cultural autêntica, guiada pelos próprios moradores da aldeia. Esta é uma oportunidade única de se desconectar do ritmo urbano e mergulhar na profunda sabedoria ancestral e na exuberância da Mata Atlântica.
             </p>
+
+            <div class="passeio-section">
+                <h2>O que esperar da sua visita</h2>
+                
+                <p>
+                    Cada trilha, cada oficina e cada roda de conversa é um convite para aprender sobre a cosmovisão Guarani. Nossos guias compartilham conhecimentos milenares sobre a medicina da floresta, a arquitetura tradicional e a música sagrada. Os passeios não são apenas atividades turísticas; são lições de vida em harmonia com a natureza.
+                </p>
+
+                <ul>
+                    <li>**Trilhas Ecológicas e Medicinais:** Caminhadas pela mata, identificando plantas e ervas usadas na medicina tradicional Guarani.</li>
+                    <li>**Oficina de Artesanato:** Aprenda as técnicas de trançado, cerâmica e confecção de adornos com os artesãos da aldeia.</li>
+                    <li>**Roda de Conversa na Opy (Casa de Reza):** Um momento de escuta e aprendizado sobre a história, a espiritualidade e o idioma Guarani.</li>
+                    <li>**Apresentação Cultural:** Experiência com a música, dança e rituais sagrados, entendendo seu significado no ciclo da vida.</li>
+                    <li>**Gastronomia Indígena:** Degustação de pratos típicos preparados com ingredientes locais e tradicionais.</li>
+                    <li>**Visita ao Viveiro de Mudas:** Conheça os esforços de preservação ambiental e as espécies nativas cultivadas na aldeia.</li>
+                </ul>
+            </div>
+            
+            <p style="text-align: center; font-style: italic; color: #8c2f1f; font-weight: bold;">
+                **"A floresta é a nossa escola e a nossa farmácia. Venha aprender com ela."**
+            </p>
+
         </div>
     </main>
 
     <footer>
         <div class="container">
-            <div class="social-icons footer-icons">
-                <a href="#" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                <a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="https://t.me/nhanderebot" target="_blank" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
-            </div>
-            
             <p class="copyright">&copy; 2024 Nhandereko. Todos os direitos reservados.</p>
         </div>
     </footer>
@@ -320,24 +357,20 @@
     
     <script>
         document.addEventListener('DOMContentLoaded', (event) => {
-            // O ID 'chatbot-gif' agora aponta para o elemento <a> dentro do menu
             const chatbotGif = document.getElementById('chatbot-gif'); 
             const popup = document.getElementById('popup');
             const closeBtn = document.getElementById('close-popup');
 
             if (chatbotGif && popup && closeBtn) {
-                // Abre o pop-up ao clicar no novo botão
                 chatbotGif.addEventListener('click', (e) => {
-                    e.preventDefault(); // Impede o link padrão de funcionar
+                    e.preventDefault(); 
                     popup.style.display = 'flex';
                 });
 
-                // Fecha o pop-up ao clicar no botão de fechar
                 closeBtn.addEventListener('click', () => {
                     popup.style.display = 'none';
                 });
 
-                // Fecha o pop-up ao clicar fora dele
                 window.addEventListener('click', (event) => {
                     if (event.target === popup) {
                         popup.style.display = 'none';

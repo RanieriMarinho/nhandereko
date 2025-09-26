@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nhandereko - Fale Conosco</title>
+    <title>Nhandereko - Cadastro</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         /* Estilos Globais */
         body {
-            font-family: 'Roboto', Arial, sans-serif;
+            font-family: 'Roboto', Arial, sans-serif; /* CORRIGIDO para consistência com index.html */
             margin: 0;
             padding: 0;
             background-color: #f8f5f0;
@@ -23,12 +23,11 @@
             margin: 0 auto;
             padding: 0 20px;
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
             align-items: center;
-            flex-wrap: wrap;
         }
-
-        /* Estilo da imagem no topo */
+        
+        /* ADICIONADO: Estilo da imagem no topo para a mesma configuração que index.html */
         .header-image {
             width: 100%;
             height: auto;
@@ -41,17 +40,24 @@
             padding: 15px 0;
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
-        
+
         header .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
+            flex-direction: row; 
+        }
+
+        /* Novo wrapper para alinhar Menu Principal e Redes Sociais no Header */
+        .nav-and-social {
+            display: flex;
+            align-items: center;
+            gap: 20px; 
         }
 
         .logo {
-            /* Tamanho de fonte reduzido em 20% (2em para 1.6em) */
-            font-size: 1.6em; 
+            font-size: 2em;
             font-weight: bold;
             color: #fff;
             text-decoration: none;
@@ -62,302 +68,328 @@
             margin: 0;
             padding: 0;
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
         }
 
         .menu-principal li {
-            margin-left: 16px; 
+            margin-left: 20px;
         }
 
         .menu-principal a {
-            color: white;
+            color: #fff;
             text-decoration: none;
-            /* Tamanho de fonte reduzido em ~20% */
-            font-size: 0.9em; 
             font-weight: bold;
-            padding: 8px 12px; 
-            display: block;
-            transition: background-color 0.3s;
+            transition: color 0.3s;
         }
 
         .menu-principal a:hover {
-            background-color: #a34234;
-            border-radius: 5px;
+            color: #e9b384;
         }
-        
-        /* Estilo para Ícones sociais dentro do menu */
-        .menu-principal .menu-social-icons {
+
+        /* Estilos dos Ícones Sociais no Header */
+        .social-icons-header {
             display: flex;
             align-items: center;
-            gap: 12px; 
-            margin-left: 24px; 
+            gap: 10px;
         }
 
-        .menu-principal .menu-social-icons a {
-            padding: 0; 
-            /* Tamanho de ícone reduzido em 20% (1.5em para 1.2em) */
-            font-size: 1.2em; 
-            display: inline; 
-        }
-
-        .menu-principal .menu-social-icons a:hover {
-            background-color: transparent; 
-            color: #f0f0f0; 
+        .social-icons-header a {
+            color: #fff;
+            font-size: 1.5em; 
+            transition: color 0.3s;
         }
         
-        /* Menu de Opções (Visitações, Passeios, Artesanatos e Chatbot) */
+        .social-icons-header a:hover {
+            color: #e9b384;
+        }
+
+        /* Menu de Opções (Centralizado) */
         .options-menu {
             display: flex;
             justify-content: center;
-            flex-wrap: wrap;
-            padding: 20px;
-            gap: 20px;
-            background-color: #f0f0f0;
+            align-items: center; /* Alinha itens verticalmente */
+            padding: 20px 0;
+            background-color: #f0ead6;
+            margin-top: 20px;
+            border-radius: 10px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            width: 100%; 
         }
 
-        .option-button {
-            background-color: #e5ccae;
-            color: #8c2f1f;
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: background-color 0.3s, color 0.3s;
-            border: 2px solid #8c2f1f;
-        }
-
-        .option-button:hover {
+        .options-menu a {
             background-color: #8c2f1f;
-            color: white;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: bold;
+            transition: background-color 0.3s;
         }
-        
-        /* Estilo para o botão do chatbot */
+
+        .options-menu a:hover {
+            background-color: #6a2419;
+        }
+
+        /* Estilo do botão do Chatbot no menu */
         .chatbot-button {
             display: flex;
             align-items: center;
-            background-color: #0088cc;
-            color: white;
-            padding: 10px 15px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background-color 0.3s;
-            border: none;
+            gap: 8px; /* Espaço entre o texto e o ícone GIF */
             cursor: pointer;
         }
-
-        .chatbot-button:hover {
-            background-color: #006699;
-        }
-
-        .chatbot-button img {
-            width: 24px;
-            height: 24px;
-            margin-right: 10px;
-        }
-
-        /* Conteúdo Principal */
-        main {
-            padding: 40px 0;
-        }
-
-        main .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 20px;
-        }
         
-        /* Estilos específicos do Formulário Fale Conosco */
-        .contact-form-container {
+        .chatbot-gif-icon {
+            width: 25px; /* Tamanho menor para encaixar no menu */
+            height: 25px;
+            border-radius: 50%;
+        }
+
+        /* Formulário de Cadastro */
+        .cadastro-form {
             background-color: #fff;
             padding: 30px;
             border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            max-width: 600px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             width: 100%;
-            margin-top: 40px;
+            max-width: 450px;
+            margin: 30px 0;
+            text-align: center; /* Centraliza botões e links */
         }
-        
-        h1 {
-            color: #8c2f1f;
+
+        .cadastro-form h1 {
             text-align: center;
-            margin-bottom: 30px;
+            color: #8c2f1f;
+            margin-bottom: 25px;
         }
-        
+
         .form-group {
             margin-bottom: 20px;
+            text-align: left;
         }
-        
+
         .form-group label {
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 5px;
             font-weight: bold;
-            color: #333;
+            color: #555;
         }
-        
-        .form-group input[type="text"],
-        .form-group input[type="email"],
-        .form-group textarea {
+
+        .form-group input {
             width: 100%;
-            padding: 12px;
+            padding: 10px;
             border: 1px solid #ccc;
             border-radius: 5px;
-            box-sizing: border-box; 
-            font-size: 1em;
+            box-sizing: border-box;
         }
-        
-        .form-group textarea {
-            resize: vertical;
-        }
-        
-        .submit-button {
-            background-color: #8c2f1f;
-            color: white;
-            padding: 12px 20px;
+
+        /* Estilo Comum para Botões */
+        .submit-button, .google-login-button {
+            width: 100%;
+            padding: 12px;
             border: none;
             border-radius: 5px;
-            cursor: pointer;
             font-size: 1.1em;
-            font-weight: bold;
+            cursor: pointer;
             transition: background-color 0.3s;
-            width: 100%;
+            margin-bottom: 10px; /* Adiciona espaço abaixo dos botões */
         }
         
-        .submit-button:hover {
-            background-color: #a34234;
+        /* Estilo do Botão Principal (Cadastrar) */
+        .submit-button {
+            background-color: #8c2f1f;
+            color: #fff;
         }
-        /* FIM Estilos específicos do Formulário Fale Conosco */
+
+        .submit-button:hover {
+            background-color: #6a2419;
+        }
+        
+        /* Botão de Login com Google */
+        .google-login-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background-color: #4285F4; /* Cor do Google */
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 2px 4px 0 rgba(0,0,0,0.25);
+        }
+
+        .google-login-button:hover {
+            background-color: #337ae8;
+        }
+        
+        .google-login-button i {
+            font-size: 1.2em;
+        }
+
+        /* Separador */
+        .separator {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 20px 0;
+            color: #999;
+            font-size: 0.9em;
+        }
+
+        .separator::before,
+        .separator::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .separator:not(:empty)::before {
+            margin-right: .25em;
+        }
+
+        .separator:not(:empty)::after {
+            margin-left: .25em;
+        }
+        
+        /* Recuperar Senha */
+        .forgot-password {
+            display: block;
+            margin-top: 15px;
+            font-size: 0.9em;
+            color: #8c2f1f;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .forgot-password:hover {
+            color: #6a2419;
+            text-decoration: underline;
+        }
+
 
         /* Rodapé */
         footer {
-            background-color: #333;
-            color: white;
+            background-color: #6a2419;
+            color: #fff;
             padding: 20px 0;
             text-align: center;
-            margin-top: 40px;
+            margin-top: auto; 
+            width: 100%;
         }
 
-        .social-icons {
-            margin-bottom: 10px;
+        .copyright {
+            margin-top: 10px;
         }
-
-        .social-icons a {
-            color: white;
-            font-size: 1.5em;
-            margin: 0 10px;
-            text-decoration: none;
-        }
-
-        .social-icons a:hover {
-            color: #e5ccae;
-        }
-
-        /* Estilos para o Pop-up (Chatbot) */
+        
+        /* Pop-up Style */
         .popup-container {
-            display: none; 
+            display: none; /* Inicia oculto */
             position: fixed;
-            z-index: 1000;
+            z-index: 1001;
             left: 0;
             top: 0;
             width: 100%;
             height: 100%;
             overflow: auto;
-            background-color: rgba(0,0,0,0.7);
+            background-color: rgba(0,0,0,0.4);
             justify-content: center;
             align-items: center;
         }
 
         .popup-content {
             background-color: #fefefe;
-            padding: 30px;
+            margin: auto;
+            padding: 20px;
             border: 1px solid #888;
             width: 80%;
             max-width: 400px;
             border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
             text-align: center;
-            position: relative;
         }
 
         .close-btn {
             color: #aaa;
+            float: right;
             font-size: 28px;
             font-weight: bold;
-            position: absolute;
-            top: 10px;
-            right: 15px;
-            cursor: pointer;
         }
 
         .close-btn:hover,
         .close-btn:focus {
-            color: #333;
+            color: #000;
             text-decoration: none;
             cursor: pointer;
         }
 
         .popup-content a {
             display: inline-block;
+            margin-top: 15px;
             background-color: #8c2f1f;
             color: white;
             padding: 10px 20px;
-            margin-top: 15px;
             text-decoration: none;
             border-radius: 5px;
             font-weight: bold;
         }
-
-        .popup-content a:hover {
-            background-color: #a34234;
-        }
     </style>
 </head>
 <body>
-    <img src="topo.png" alt="Pessoas em uma paisagem natural" class="header-image">
+
+    <img src="FAIXA4_BRANCA.png" alt="Padrão cultural Guarani" class="header-image"> 
 
     <header>
         <div class="container">
             <a href="index.html" class="logo">Nhandereko</a>
             
-            <nav class="menu-principal">
-                <ul>
-                    <li><a href="index.html">Início</a></li>
-                    <li><a href="cadastro.html">Cadastro</a></li>
-                    <li><a href="sobre.html">Sobre</a></li>
-                    <li class="current-page"><a href="faleconosco.html">Fale Conosco</a></li>
-                    <li><a href="etnoturismo.html">Etnoturismo</a></li>
-                    <li><a href="galeria.html">Galeria de Fotos</a></li>
-                    <li><a href="volunturismo.html">Volunturismo</a></li>
-                    
-                    <li class="menu-social-icons">
-                        <a href="#" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                        <a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                        <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    </li>
+            <div class="nav-and-social">
+                <nav class="menu-principal">
+                    <ul>
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="cadastro.html">Cadastro</a></li>
+                        <li><a href="sobre.html">Sobre</a></li>
+                        <li><a href="faleconosco.html">Fale Conosco</a></li>
+                        <li><a href="etnoturismo.html">Etnoturismo</a></li>
+                        <li><a href="galeria.html">Galeria de Fotos</a></li>
+                        <li><a href="volunturismo.html">Volunturismo</a></li>
                     </ul>
-            </nav>
+                </nav>
+                
+                <div class="social-icons-header">
+                    <a href="#" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
         </div>
     </header>
 
-    <div class="options-menu">
+      <div class="options-menu">
         <a href="hospedagem.html" class="option-button">Visitações</a>
-        <a href="#" class="option-button">Passeios</a>
-        <a href="#" class="option-button">Artesanatos</a>
-        <a href="#" id="chatbot-gif" class="chatbot-button">
-            <img src="chatbot.gif" alt="Ícone de chatbot">
-            Fale Comigo!
+        <a href="passeios.html" class="option-button">Passeios</a>
+        <a href="artesanatos.html" class="option-button">Artesanatos</a>
+        
+        <a href="#" class="option-button chatbot-button" id="chatbot-gif">
+            <p style="margin: 0; font-weight: bold;">Fale Comigo!</p>
+            <img src="chatbot.gif" alt="Ícone de chatbot" class="chatbot-gif-icon">
         </a>
-        </div>
+    </div>
 
     <main>
         <div class="container">
-            <div class="contact-form-container">
-                <h1>Fale Conosco</h1>
+            <div class="cadastro-form">
+                <h1>Cadastre-se / Login</h1>
+                
+                <a href="#" class="google-login-button" aria-label="Continuar com Google">
+                    <i class="fab fa-google"></i>
+                    Continuar com Google
+                </a>
+                
+                <div class="separator">ou</div>
+                
                 <form action="#" method="post">
                     <div class="form-group">
-                        <label for="nome">Nome:</label>
+                        <label for="nome">Nome Completo:</label>
                         <input type="text" id="nome" name="nome" required>
                     </div>
                     <div class="form-group">
@@ -365,14 +397,22 @@
                         <input type="email" id="email" name="email" required>
                     </div>
                     <div class="form-group">
-                        <label for="assunto">Assunto:</label>
-                        <input type="text" id="assunto" name="assunto" required>
+                        <label for="telefone">Telefone:</label>
+                        <input type="tel" id="telefone" name="telefone">
                     </div>
                     <div class="form-group">
-                        <label for="mensagem">Mensagem:</label>
-                        <textarea id="mensagem" name="mensagem" rows="6" required></textarea>
+                        <label for="senha">Senha:</label>
+                        <input type="password" id="senha" name="senha" required>
                     </div>
-                    <button type="submit" class="submit-button">Enviar Mensagem</button>
+                    <div class="form-group">
+                        <label for="confirma-senha">Confirme a Senha:</label>
+                        <input type="password" id="confirma-senha" name="confirma-senha" required>
+                    </div>
+                    
+                    <button type="submit" class="submit-button">Cadastrar</button>
+                    
+                    <a href="#" class="forgot-password">Esqueceu sua senha? **Recuperar Senha**</a>
+
                 </form>
             </div>
         </div>
@@ -380,12 +420,6 @@
 
     <footer>
         <div class="container">
-            <div class="social-icons">
-                <a href="#" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                <a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-            </div>
-            
             <p class="copyright">&copy; 2024 Nhandereko. Todos os direitos reservados.</p>
         </div>
     </footer>
@@ -401,14 +435,15 @@
     
     <script>
         document.addEventListener('DOMContentLoaded', (event) => {
-            const chatbotGif = document.getElementById('chatbot-gif');
+            // O ID 'chatbot-gif' aponta para o novo botão dentro do menu
+            const chatbotGif = document.getElementById('chatbot-gif'); 
             const popup = document.getElementById('popup');
             const closeBtn = document.getElementById('close-popup');
 
             if (chatbotGif && popup && closeBtn) {
-                // Abre o pop-up ao clicar no botão
+                // Abre o pop-up ao clicar no novo botão
                 chatbotGif.addEventListener('click', (e) => {
-                    e.preventDefault(); 
+                    e.preventDefault(); // Impede o link padrão de funcionar
                     popup.style.display = 'flex';
                 });
 

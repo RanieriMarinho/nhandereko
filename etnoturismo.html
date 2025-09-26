@@ -23,11 +23,10 @@
             margin: 0 auto;
             padding: 0 20px;
             display: flex;
-            justify-content: space-between;
+            flex-direction: column; /* Define como coluna para main content */
             align-items: center;
-            flex-wrap: wrap;
         }
-
+        
         /* Estilo da imagem no topo */
         .header-image {
             width: 100%;
@@ -41,17 +40,24 @@
             padding: 15px 0;
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
-        
+
         header .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
+            flex-direction: row; 
+        }
+
+        /* Novo wrapper para alinhar Menu Principal e Redes Sociais no Header */
+        .nav-and-social {
+            display: flex;
+            align-items: center;
+            gap: 20px; 
         }
 
         .logo {
-            /* ALTERAÇÃO: Redução de 2em para 1.6em (20% de redução) */
-            font-size: 1.6em; 
+            font-size: 2em; /* Tamanho padronizado */
             font-weight: bold;
             color: #fff;
             text-decoration: none;
@@ -62,107 +68,94 @@
             margin: 0;
             padding: 0;
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
         }
 
         .menu-principal li {
-            margin-left: 16px; /* Ajuste para o novo tamanho de fonte */
+            margin-left: 20px;
         }
 
         .menu-principal a {
-            color: white;
+            color: #fff;
             text-decoration: none;
-            /* ALTERAÇÃO: Redução da fonte do menu principal em 20% (ajuste automático do navegador em relação ao font-weight) */
-            font-size: 0.9em; 
             font-weight: bold;
-            padding: 8px 12px; /* Ajuste no padding para acompanhar a fonte menor */
-            display: block;
-            transition: background-color 0.3s;
+            font-size: 1em; /* Tamanho padronizado */
+            transition: color 0.3s;
         }
 
         .menu-principal a:hover {
-            background-color: #a34234;
-            border-radius: 5px;
+            color: #e9b384;
+            background-color: transparent; /* Remove background-color */
+            border-radius: 0; /* Remove border-radius */
         }
         
-        /* NOVO ESTILO: Ícones sociais dentro do menu */
-        .menu-principal .menu-social-icons {
+        /* Estilos dos Ícones Sociais no Header */
+        .social-icons-header {
             display: flex;
             align-items: center;
-            gap: 12px; /* Ajuste no gap */
-            margin-left: 24px; /* Ajuste na margem */
+            gap: 10px;
         }
 
-        .menu-principal .menu-social-icons a {
-            padding: 0; /* Remove padding do link do menu principal */
-            /* ALTERAÇÃO: Redução do tamanho do ícone em 20% (1.5em para 1.2em) */
-            font-size: 1.2em; 
-            display: inline; 
+        .social-icons-header a {
+            color: #fff;
+            font-size: 1.5em; /* Tamanho padronizado */
+            transition: color 0.3s;
+            text-decoration: none; /* Garante que não tenha sublinhado */
         }
-
-        .menu-principal .menu-social-icons a:hover {
-            background-color: transparent; 
-            color: #f0f0f0; 
-        }
-        /* FIM NOVO ESTILO */
         
-        /* Menu de Opções (Visitações, Passeios, Artesanatos e Chatbot) */
+        .social-icons-header a:hover {
+            color: #e9b384;
+        }
+
+
+        /* Menu de Opções (Centralizado) - Padronizado */
         .options-menu {
             display: flex;
             justify-content: center;
-            flex-wrap: wrap;
-            padding: 20px;
-            gap: 20px;
-            background-color: #f0f0f0;
+            align-items: center; /* Alinha itens verticalmente */
+            padding: 20px 0;
+            background-color: #f0ead6;
+            margin-top: 20px;
+            border-radius: 10px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            width: 100%; 
         }
 
-        .option-button {
-            background-color: #e5ccae;
-            color: #8c2f1f;
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: background-color 0.3s, color 0.3s;
-            border: 2px solid #8c2f1f;
-        }
-
-        .option-button:hover {
+        .options-menu a {
             background-color: #8c2f1f;
-            color: white;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            border: none; /* Remove a borda para padronizar com index.html */
         }
-        
-        /* Estilo para o botão do chatbot */
+
+        .options-menu a:hover {
+            background-color: #6a2419;
+            color: white; /* Garante a cor branca no hover */
+        }
+
+        /* Estilo do botão do Chatbot no menu */
         .chatbot-button {
             display: flex;
             align-items: center;
-            background-color: #0088cc;
-            color: white;
-            padding: 10px 15px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background-color 0.3s;
-            border: none;
+            gap: 8px; /* Espaço entre o texto e o ícone GIF */
             cursor: pointer;
         }
-
-        .chatbot-button:hover {
-            background-color: #006699;
-        }
-
-        .chatbot-button img {
-            width: 24px;
-            height: 24px;
-            margin-right: 10px;
+        
+        .chatbot-gif-icon {
+            width: 25px; /* Tamanho menor para encaixar no menu */
+            height: 25px;
+            border-radius: 50%;
         }
 
 
         /* Conteúdo Principal */
         main {
             padding: 40px 0;
+            width: 100%;
         }
 
         main .container {
@@ -192,15 +185,17 @@
             text-align: justify;
         }
 
-        /* Rodapé */
+        /* Rodapé - Padronizado */
         footer {
-            background-color: #333;
-            color: white;
+            background-color: #6a2419; /* Cor padronizada */
+            color: #fff;
             padding: 20px 0;
             text-align: center;
+            width: 100%;
             margin-top: 40px;
         }
-
+        
+        /* Ícones sociais no Rodapé (mantido como está no arquivo original do usuário, mas padronizando a cor de fundo do footer) */
         .social-icons {
             margin-bottom: 10px;
         }
@@ -216,29 +211,36 @@
             color: #e5ccae;
         }
 
-        /* Estilos para o Pop-up (Chatbot) */
+        .copyright {
+            margin-top: 10px;
+            color: #fff;
+        }
+
+
+        /* Estilos para o Pop-up (Chatbot) - Padronizado */
         .popup-container {
             display: none; 
             position: fixed;
-            z-index: 1000;
+            z-index: 1001; /* Z-index padronizado */
             left: 0;
             top: 0;
             width: 100%;
             height: 100%;
             overflow: auto;
-            background-color: rgba(0,0,0,0.7);
+            background-color: rgba(0,0,0,0.4); /* Opacidade padronizada */
             justify-content: center;
             align-items: center;
         }
 
         .popup-content {
             background-color: #fefefe;
-            padding: 30px;
+            padding: 20px; /* Padding padronizado */
             border: 1px solid #888;
             width: 80%;
             max-width: 400px;
             border-radius: 10px;
             text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3); /* Sombra padronizada */
             position: relative;
         }
 
@@ -271,46 +273,50 @@
         }
 
         .popup-content a:hover {
-            background-color: #a34234;
+            background-color: #6a2419; /* Hover padronizado */
         }
     </style>
 </head>
 <body>
-    <img src="topo.png" alt="Pessoas em uma paisagem natural" class="header-image">
+    
+    <img src="FAIXA4_BRANCA.png" alt="Padrão cultural Guarani" class="header-image"> 
 
     <header>
         <div class="container">
             <a href="index.html" class="logo">Nhandereko</a>
             
-            <nav class="menu-principal">
-                <ul>
-                    <li><a href="index.html">Início</a></li>
-                    <li><a href="cadastro.html">Cadastro</a></li>
-                    <li><a href="sobre.html">Sobre</a></li>
-                    <li><a href="faleconosco.html">Fale Conosco</a></li>
-                    <li><a href="etnoturismo.html">Etnoturismo</a></li>
-                    <li><a href="galeria.html">Galeria de Fotos</a></li>
-                    <li><a href="volunturismo.html">Volunturismo</a></li>
-                    
-                    <li class="menu-social-icons">
-                        <a href="#" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                        <a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                        <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    </li>
+            <div class="nav-and-social">
+                <nav class="menu-principal">
+                    <ul>
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="cadastro.html">Cadastro</a></li>
+                        <li><a href="sobre.html">Sobre</a></li>
+                        <li><a href="faleconosco.html">Fale Conosco</a></li>
+                        <li><a href="etnoturismo.html">Etnoturismo</a></li>
+                        <li><a href="galeria.html">Galeria de Fotos</a></li>
+                        <li><a href="volunturismo.html">Volunturismo</a></li>
                     </ul>
-            </nav>
+                </nav>
+                
+                <div class="social-icons-header">
+                    <a href="#" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
         </div>
     </header>
 
     <div class="options-menu">
         <a href="hospedagem.html" class="option-button">Visitações</a>
-        <a href="#" class="option-button">Passeios</a>
-        <a href="#" class="option-button">Artesanatos</a>
-        <a href="#" id="chatbot-gif" class="chatbot-button">
-            <img src="chatbot.gif" alt="Ícone de chatbot">
-            Fale Comigo!
+        <a href="passeios.html" class="option-button">Passeios</a>
+        <a href="artesanatos.html" class="option-button">Artesanatos</a>
+        
+        <a href="#" class="option-button chatbot-button" id="chatbot-gif">
+            <p style="margin: 0; font-weight: bold;">Fale Comigo!</p>
+            <img src="chatbot.gif" alt="Ícone de chatbot" class="chatbot-gif-icon">
         </a>
-        </div>
+    </div>
 
     <main>
         <div class="container">
