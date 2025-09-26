@@ -25,6 +25,7 @@
         }
 
         /* Estilo da imagem no topo */
+        /* Esta regra é o que garante a largura total da tela */
         .header-image {
             width: 100%;
             height: auto;
@@ -45,18 +46,18 @@
             flex-wrap: wrap;
         }
 
-        /* Estilos do Cabeçalho (Reduzidos em 20% - conforme definido em etapas anteriores) */
+        .logo {
+            font-size: 2em;
+            font-weight: bold;
+            color: #fff;
+            text-decoration: none;
+        }
+        
+        /* Novo wrapper para alinhar Menu Principal e Redes Sociais no Header */
         .nav-and-social {
             display: flex;
             align-items: center;
             gap: 20px; 
-        }
-
-        .logo {
-            font-size: 1.6em; 
-            font-weight: bold;
-            color: #fff;
-            text-decoration: none;
         }
 
         .menu-principal ul {
@@ -74,7 +75,6 @@
             color: #fff;
             text-decoration: none;
             font-weight: bold;
-            font-size: 0.8em; 
             transition: color 0.3s;
         }
 
@@ -82,6 +82,7 @@
             color: #e9b384;
         }
 
+        /* Estilos dos Ícones Sociais no Header */
         .social-icons-header {
             display: flex;
             align-items: center;
@@ -90,7 +91,7 @@
 
         .social-icons-header a {
             color: #fff;
-            font-size: 1.2em; 
+            font-size: 1.5em; /* Tamanho padronizado */
             transition: color 0.3s;
         }
         
@@ -98,17 +99,17 @@
             color: #e9b384;
         }
 
-        /* Menu de Opções (Novo estilo para botões) */
+        /* Menu de Opções (abaixo do header) */
         .options-menu {
             display: flex;
             justify-content: center;
-            align-items: center; 
+            align-items: center; /* Alinha itens verticalmente */
             padding: 20px 0;
             background-color: #f0ead6;
             margin-top: 20px;
             border-radius: 10px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            width: 100%; 
+            width: 100%;
         }
 
         .options-menu a {
@@ -143,27 +144,30 @@
         /* Conteúdo Principal */
         main {
             padding: 40px 0;
-        }
-
-        main h1 {
-            color: #8c2f1f;
             text-align: center;
         }
         
+        main h1 {
+            color: #8c2f1f;
+            margin-bottom: 20px;
+        }
+
         main p {
             font-size: 1.1em;
             line-height: 1.6;
+            max-width: 800px;
+            margin: 20px auto;
             text-align: justify;
         }
 
         .content-image-center {
-            display: block;
             max-width: 100%;
             height: auto;
-            margin: 20px auto; /* Centraliza a imagem */
-            border-radius: 10px;
+            display: block;
+            margin: 30px auto;
+            border-radius: 8px;
         }
-        
+
         /* Rodapé */
         footer {
             background-color: #6a2419;
@@ -171,31 +175,31 @@
             padding: 20px 0;
             text-align: center;
             width: 100%;
-            margin-top: 30px; 
         }
 
+        /* Ícones sociais no Rodapé */
         .social-icons {
-            margin-bottom: 15px;
+            margin-bottom: 10px;
         }
 
         .social-icons a {
-            color: #fff;
+            color: white;
             font-size: 1.5em;
             margin: 0 10px;
-            transition: color 0.3s;
+            text-decoration: none;
         }
 
         .social-icons a:hover {
-            color: #e9b384;
+            color: #e5ccae;
         }
 
         .copyright {
             margin-top: 10px;
         }
-
-        /* Pop-up Style */
+        
+        /* Estilos para o Pop-up (Chatbot) */
         .popup-container {
-            display: none; /* Inicia oculto */
+            display: none; 
             position: fixed;
             z-index: 1001;
             left: 0;
@@ -203,7 +207,7 @@
             width: 100%;
             height: 100%;
             overflow: auto;
-            background-color: rgba(0,0,0,0.4);
+            background-color: rgba(0,0,0,0.4); 
             justify-content: center;
             align-items: center;
         }
@@ -244,15 +248,20 @@
             border-radius: 5px;
             font-weight: bold;
         }
+
     </style>
 </head>
 <body>
-    <img src="FAIXA4_BRANCA.png" alt="Padrão cultural Guarani" class="header-image"> 
+    <audio id="background-audio" loop autoplay>
+        <source src="Nhanerãmoi'i Karai Poty - Memória Viva Guarani (youtube).mp3" type="audio/mpeg">
+        Seu navegador não suporta a tag de áudio.
+    </audio>
+
+    <img src="FAIXA4_BRANCA.png" alt="Padrão cultural Guarani" class="header-image">
 
     <header>
         <div class="container">
             <a href="index.html" class="logo">Nhandereko</a>
-            
             <div class="nav-and-social">
                 <nav class="menu-principal">
                     <ul>
@@ -265,7 +274,6 @@
                         <li><a href="volunturismo.html">Volunturismo</a></li>
                     </ul>
                 </nav>
-                
                 <div class="social-icons-header">
                     <a href="#" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
                     <a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
@@ -279,7 +287,6 @@
         <a href="hospedagem.html" class="option-button">Visitações</a>
         <a href="passeios.html" class="option-button">Passeios</a>
         <a href="artesanatos.html" class="option-button">Artesanatos</a>
-        
         <a href="#" class="option-button chatbot-button" id="chatbot-gif">
             <p style="margin: 0; font-weight: bold;">Fale Comigo!</p>
             <img src="chatbot.gif" alt="Ícone de chatbot" class="chatbot-gif-icon">
@@ -320,24 +327,20 @@
     
     <script>
         document.addEventListener('DOMContentLoaded', (event) => {
-            // O ID 'chatbot-gif' agora aponta para o elemento <a> dentro do menu
             const chatbotGif = document.getElementById('chatbot-gif'); 
             const popup = document.getElementById('popup');
             const closeBtn = document.getElementById('close-popup');
 
             if (chatbotGif && popup && closeBtn) {
-                // Abre o pop-up ao clicar no novo botão
                 chatbotGif.addEventListener('click', (e) => {
-                    e.preventDefault(); // Impede o link padrão de funcionar
+                    e.preventDefault(); 
                     popup.style.display = 'flex';
                 });
 
-                // Fecha o pop-up ao clicar no botão de fechar
                 closeBtn.addEventListener('click', () => {
                     popup.style.display = 'none';
                 });
 
-                // Fecha o pop-up ao clicar fora dele
                 window.addEventListener('click', (event) => {
                     if (event.target === popup) {
                         popup.style.display = 'none';
