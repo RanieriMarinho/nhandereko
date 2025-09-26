@@ -146,6 +146,7 @@
             width: 100%;
             max-width: 450px;
             margin: 30px 0;
+            text-align: center; /* Centraliza botões e links */
         }
 
         .cadastro-form h1 {
@@ -156,6 +157,7 @@
 
         .form-group {
             margin-bottom: 20px;
+            text-align: left;
         }
 
         .form-group label {
@@ -173,21 +175,90 @@
             box-sizing: border-box;
         }
 
-        .submit-button {
+        /* Estilo Comum para Botões */
+        .submit-button, .google-login-button {
             width: 100%;
-            background-color: #8c2f1f;
-            color: #fff;
             padding: 12px;
             border: none;
             border-radius: 5px;
             font-size: 1.1em;
             cursor: pointer;
             transition: background-color 0.3s;
+            margin-bottom: 10px; /* Adiciona espaço abaixo dos botões */
+        }
+        
+        /* Estilo do Botão Principal (Cadastrar) */
+        .submit-button {
+            background-color: #8c2f1f;
+            color: #fff;
         }
 
         .submit-button:hover {
             background-color: #6a2419;
         }
+        
+        /* NOVO ESTILO: Botão de Login com Google */
+        .google-login-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background-color: #4285F4; /* Cor do Google */
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 2px 4px 0 rgba(0,0,0,0.25);
+        }
+
+        .google-login-button:hover {
+            background-color: #337ae8;
+        }
+        
+        .google-login-button i {
+            font-size: 1.2em;
+        }
+
+        /* NOVO ESTILO: Separador */
+        .separator {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 20px 0;
+            color: #999;
+            font-size: 0.9em;
+        }
+
+        .separator::before,
+        .separator::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .separator:not(:empty)::before {
+            margin-right: .25em;
+        }
+
+        .separator:not(:empty)::after {
+            margin-left: .25em;
+        }
+        
+        /* NOVO ESTILO: Recuperar Senha */
+        .forgot-password {
+            display: block;
+            margin-top: 15px;
+            font-size: 0.9em;
+            color: #8c2f1f;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .forgot-password:hover {
+            color: #6a2419;
+            text-decoration: underline;
+        }
+
 
         /* Rodapé */
         footer {
@@ -298,7 +369,15 @@
     <main>
         <div class="container">
             <div class="cadastro-form">
-                <h1>Cadastre-se</h1>
+                <h1>Cadastre-se / Login</h1>
+                
+                <a href="#" class="google-login-button" aria-label="Continuar com Google">
+                    <i class="fab fa-google"></i>
+                    Continuar com Google
+                </a>
+                
+                <div class="separator">ou</div>
+                
                 <form action="#" method="post">
                     <div class="form-group">
                         <label for="nome">Nome Completo:</label>
@@ -320,7 +399,11 @@
                         <label for="confirma-senha">Confirme a Senha:</label>
                         <input type="password" id="confirma-senha" name="confirma-senha" required>
                     </div>
+                    
                     <button type="submit" class="submit-button">Cadastrar</button>
+                    
+                    <a href="#" class="forgot-password">Esqueceu sua senha? **Recuperar Senha**</a>
+
                 </form>
             </div>
         </div>
