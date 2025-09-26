@@ -172,7 +172,8 @@
             color: #555;
         }
 
-        .form-group input {
+        /* Regra atualizada para incluir o <select> */
+        .form-group input, .form-group select {
             width: 100%;
             padding: 10px;
             border: 1px solid #ccc;
@@ -308,6 +309,19 @@
                 <h1>Visitações</h1>
                 <p style="text-align: center; margin-bottom: 25px;">Verifique a disponibilidade de acomodações na aldeia.</p>
                 <form action="#" method="post">
+                    <div class="form-group">
+                        <label for="aldeia">Selecione a Aldeia:</label>
+                        <select id="aldeia" name="aldeia" required>
+                            <option value="" disabled selected>Escolha uma opção</option>
+                            <option value="aldeia1">Aldeia Tekoá Yvy Poty</option>
+                            <option value="aldeia2">Aldeia Xondaro Yvy Rupá</option>
+                            <option value="aldeia3">Aldeia Mbya Guarani Krukutu</option>
+                            <option value="aldeia4">Aldeia Paranapuã</option>
+                            <option value="aldeia5">Aldeia Renascer</option>
+                            <option value="aldeia6">Aldeia Rio Silveiras</option>
+                            <option value="outra">Outra Aldeia</option>
+                        </select>
+                    </div>
                     <div class="form-group">
                         <label for="data-inicio">Data de Início:</label>
                         <input type="date" id="data-inicio" name="data-inicio" min="2025-01-01" max="2025-12-31" required>
