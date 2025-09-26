@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nhandereko - Cadastro</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         /* Estilos Globais */
         body {
@@ -25,13 +27,6 @@
             align-items: center;
         }
 
-        /* Estilo da imagem no topo */
-        .header-image {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
         /* Menu Superior */
         header {
             background-color: #8c2f1f;
@@ -44,6 +39,14 @@
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
+            flex-direction: row; 
+        }
+
+        /* Novo wrapper para alinhar Menu Principal e Redes Sociais no Header */
+        .nav-and-social {
+            display: flex;
+            align-items: center;
+            gap: 20px; 
         }
 
         .logo {
@@ -58,8 +61,6 @@
             margin: 0;
             padding: 0;
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
         }
 
         .menu-principal li {
@@ -67,57 +68,90 @@
         }
 
         .menu-principal a {
-            color: white;
+            color: #fff;
             text-decoration: none;
             font-weight: bold;
-            padding: 10px 15px;
-            display: block;
-            transition: background-color 0.3s;
+            transition: color 0.3s;
         }
 
         .menu-principal a:hover {
-            background-color: #a34234;
-            border-radius: 5px;
+            color: #e9b384;
         }
 
-        /* Conteúdo Principal */
-        main {
-            padding: 40px 0;
-            text-align: center;
-        }
-        
-        h1 {
-            color: #5a251b;
-            font-size: 2.5em;
-            margin-bottom: 20px;
-        }
-
-        /* Contêiner para a imagem e o formulário */
-        .content-wrapper {
+        /* Estilos dos Ícones Sociais no Header */
+        .social-icons-header {
             display: flex;
-            flex-direction: row;
             align-items: center;
-            justify-content: center;
-            gap: 40px;
-            flex-wrap: wrap;
-        }
-        
-        /* Estilo para a imagem de login */
-        .login-image {
-            max-width: 400px;
-            height: auto;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            gap: 10px;
         }
 
-        /* Estilos do Formulário de Cadastro */
+        .social-icons-header a {
+            color: #fff;
+            font-size: 1.5em; 
+            transition: color 0.3s;
+        }
+        
+        .social-icons-header a:hover {
+            color: #e9b384;
+        }
+
+        /* Menu de Opções (Centralizado) */
+        .options-menu {
+            display: flex;
+            justify-content: center;
+            align-items: center; /* Alinha itens verticalmente */
+            padding: 20px 0;
+            background-color: #f0ead6;
+            margin-top: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            width: 100%; 
+        }
+
+        .options-menu a {
+            background-color: #8c2f1f;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .options-menu a:hover {
+            background-color: #6a2419;
+        }
+
+        /* Estilo do botão do Chatbot no menu */
+        .chatbot-button {
+            display: flex;
+            align-items: center;
+            gap: 8px; /* Espaço entre o texto e o ícone GIF */
+            cursor: pointer;
+        }
+        
+        .chatbot-gif-icon {
+            width: 25px; /* Tamanho menor para encaixar no menu */
+            height: 25px;
+            border-radius: 50%;
+        }
+
+        /* Formulário de Cadastro */
         .cadastro-form {
-            max-width: 500px;
-            padding: 30px;
             background-color: #fff;
-            border-radius: 8px;
+            padding: 30px;
+            border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            text-align: left;
+            width: 100%;
+            max-width: 450px;
+            margin: 30px 0;
+        }
+
+        .cadastro-form h1 {
+            text-align: center;
+            color: #8c2f1f;
+            margin-bottom: 25px;
         }
 
         .form-group {
@@ -126,191 +160,146 @@
 
         .form-group label {
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 5px;
             font-weight: bold;
-            color: #5a251b;
+            color: #555;
         }
 
         .form-group input {
             width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
+            padding: 10px;
+            border: 1px solid #ccc;
             border-radius: 5px;
             box-sizing: border-box;
-            font-size: 16px;
-        }
-
-        .form-group input:focus {
-            border-color: #8c2f1f;
-            outline: none;
         }
 
         .submit-button {
             width: 100%;
-            padding: 15px;
             background-color: #8c2f1f;
             color: #fff;
+            padding: 12px;
             border: none;
             border-radius: 5px;
-            font-size: 18px;
-            font-weight: bold;
+            font-size: 1.1em;
             cursor: pointer;
             transition: background-color 0.3s;
         }
 
         .submit-button:hover {
-            background-color: #a34234;
+            background-color: #6a2419;
         }
-        
+
         /* Rodapé */
         footer {
-            background-color: #5a251b;
-            color: #f8f5f0;
+            background-color: #6a2419;
+            color: #fff;
             padding: 20px 0;
             text-align: center;
-            margin-top: 40px;
-        }
-        
-        /* Estilos para os ícones de redes sociais */
-        .social-icons {
-            margin: 20px 0;
-            text-align: center;
-        }
-
-        .social-icons a {
-            color: #f8f5f0;
-            font-size: 1.8em;
-            margin: 0 10px;
-            transition: color 0.3s;
-        }
-
-        .social-icons a:hover {
-            color: #a34234;
+            margin-top: auto; 
+            width: 100%;
         }
 
         .copyright {
-            margin: 0;
-            font-size: 0.9em;
+            margin-top: 10px;
+        }
+        
+        /* Pop-up Style */
+        .popup-container {
+            display: none; /* Inicia oculto */
+            position: fixed;
+            z-index: 1001;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+            justify-content: center;
+            align-items: center;
         }
 
-        /* ----- Menu lateral de redes sociais (apenas para mobile) ----- */
-        .sidebar {
-            height: 100%;
-            width: 0;
-            position: fixed;
-            z-index: 1;
-            top: 0;
-            left: 0;
-            background-color: #8c2f1f;
-            overflow-x: hidden;
-            transition: 0.5s;
-            padding-top: 60px;
+        .popup-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 400px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
             text-align: center;
         }
 
-        .sidebar a.closebtn {
-            position: absolute;
-            top: 0;
-            right: 25px;
-            font-size: 36px;
-            margin-left: 50px;
-            color: #fff;
+        .close-btn {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close-btn:hover,
+        .close-btn:focus {
+            color: #000;
             text-decoration: none;
-        }
-        
-        .sidebar .social-icons {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            margin-top: 20px;
-        }
-        
-        .sidebar .social-icons a {
-            font-size: 2.2em;
-            color: #f8f5f0;
-            margin: 0;
-        }
-
-        .menu-toggle {
-            display: none;
-            font-size: 30px;
             cursor: pointer;
-            color: #8c2f1f;
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            z-index: 2;
         }
-        
-        /* Responsividade para telas menores */
-        @media (max-width: 768px) {
-            header .container {
-                flex-direction: column;
-            }
-            .logo {
-                margin-bottom: 15px;
-            }
-            .menu-principal ul {
-                flex-direction: column;
-                width: 100%;
-            }
-            .menu-principal li {
-                margin: 5px 0;
-            }
-            .menu-principal a {
-                text-align: center;
-            }
 
-            .menu-toggle {
-                display: block;
-            }
-
-            .social-icons.footer-icons {
-                display: none;
-            }
+        .popup-content a {
+            display: inline-block;
+            margin-top: 15px;
+            background-color: #8c2f1f;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
         }
     </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
-    <img src="FAIXA4_BRANCA.png" alt="Padrão cultural Guarani" class="header-image">
-    
-    <button id="menu-toggle" class="menu-toggle" aria-label="Abrir menu"><i class="fa fa-bars"></i></button>
-    
+
     <header>
         <div class="container">
             <a href="index.html" class="logo">Nhandereko</a>
-            <nav class="menu-principal">
-                <ul>
-                    <li><a href="index.html">Início</a></li>
-                    <li><a href="cadastro.html">Cadastro</a></li>
-                    <li><a href="sobre.html">Sobre</a></li>
-                    <li><a href="faleconosco.html">Fale Conosco</a></li>
-                    <li><a href="etnoturismo.html">Etnoturismo</a></li>
-                    <li><a href="galeria.html">Galeria de Fotos</a></li>
-                    <li><a href="volunturismo.html">Volunturismo</a></li>
-                </ul>
-            </nav>
+            
+            <div class="nav-and-social">
+                <nav class="menu-principal">
+                    <ul>
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="cadastro.html">Cadastro</a></li>
+                        <li><a href="sobre.html">Sobre</a></li>
+                        <li><a href="faleconosco.html">Fale Conosco</a></li>
+                        <li><a href="etnoturismo.html">Etnoturismo</a></li>
+                        <li><a href="galeria.html">Galeria de Fotos</a></li>
+                        <li><a href="volunturismo.html">Volunturismo</a></li>
+                    </ul>
+                </nav>
+                
+                <div class="social-icons-header">
+                    <a href="#" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
         </div>
     </header>
 
-    <div id="sidebar" class="sidebar">
-        <a href="javascript:void(0)" class="closebtn" id="close-menu">&times;</a>
-        <div class="social-icons">
-            <a href="#" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-            <a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-            <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="#" target="_blank" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
-        </div>
+    <div class="options-menu">
+        <a href="hospedagem.html" class="option-button">Visitações</a>
+        <a href="#" class="option-button">Passeios</a>
+        <a href="#" class="option-button">Artesanatos</a>
+        
+        <a href="#" class="option-button chatbot-button" id="chatbot-gif">
+            <p style="margin: 0; font-weight: bold;">Fale Comigo!</p>
+            <img src="chatbot.gif" alt="Ícone de chatbot" class="chatbot-gif-icon">
+        </a>
     </div>
 
     <main>
         <div class="container">
-            <h1>Cadastro de Novo Usuário</h1>
-            <div class="content-wrapper">
-                <img src="login.jpg" alt="Pessoas indígenas com artesanato" class="login-image">
-                
-                <form class="cadastro-form">
+            <div class="cadastro-form">
+                <h1>Cadastre-se</h1>
+                <form action="#" method="post">
                     <div class="form-group">
                         <label for="nome">Nome Completo:</label>
                         <input type="text" id="nome" name="nome" required>
@@ -318,6 +307,10 @@
                     <div class="form-group">
                         <label for="email">Email:</label>
                         <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="telefone">Telefone:</label>
+                        <input type="tel" id="telefone" name="telefone">
                     </div>
                     <div class="form-group">
                         <label for="senha">Senha:</label>
@@ -335,24 +328,45 @@
 
     <footer>
         <div class="container">
-            <div class="social-icons footer-icons">
-                <a href="#" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                <a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="#" target="_blank" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
-            </div>
-            
             <p class="copyright">&copy; 2024 Nhandereko. Todos os direitos reservados.</p>
         </div>
     </footer>
 
+    <div id="popup" class="popup-container">
+        <div class="popup-content">
+            <span class="close-btn" id="close-popup">&times;</span>
+            <h2>Nhandereko Bot</h2>
+            <p>Para interagir com o nosso bot no Telegram, clique no botão abaixo.</p>
+            <a href="https://t.me/nhanderebot" target="_blank">Conversar com o Bot</a>
+        </div>
+    </div>
+    
     <script>
-        document.getElementById('menu-toggle').addEventListener('click', function() {
-            document.getElementById('sidebar').style.width = '250px';
-        });
+        document.addEventListener('DOMContentLoaded', (event) => {
+            // O ID 'chatbot-gif' aponta para o novo botão dentro do menu
+            const chatbotGif = document.getElementById('chatbot-gif'); 
+            const popup = document.getElementById('popup');
+            const closeBtn = document.getElementById('close-popup');
 
-        document.getElementById('close-menu').addEventListener('click', function() {
-            document.getElementById('sidebar').style.width = '0';
+            if (chatbotGif && popup && closeBtn) {
+                // Abre o pop-up ao clicar no novo botão
+                chatbotGif.addEventListener('click', (e) => {
+                    e.preventDefault(); // Impede o link padrão de funcionar
+                    popup.style.display = 'flex';
+                });
+
+                // Fecha o pop-up ao clicar no botão de fechar
+                closeBtn.addEventListener('click', () => {
+                    popup.style.display = 'none';
+                });
+
+                // Fecha o pop-up ao clicar fora dele
+                window.addEventListener('click', (event) => {
+                    if (event.target === popup) {
+                        popup.style.display = 'none';
+                    }
+                });
+            }
         });
     </script>
 </body>

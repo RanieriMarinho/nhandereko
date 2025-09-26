@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nhandereko - Hospedagem</title>
+    <title>Nhandereko - Visitações</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
@@ -22,6 +22,9 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         
         /* Menu Superior */
@@ -36,6 +39,14 @@
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
+            flex-direction: row; 
+        }
+
+        /* Novo wrapper para alinhar Menu Principal e Redes Sociais no Header */
+        .nav-and-social {
+            display: flex;
+            align-items: center;
+            gap: 20px; 
         }
 
         .logo {
@@ -66,19 +77,38 @@
         .menu-principal a:hover {
             color: #e9b384;
         }
+        
+        /* Estilos dos Ícones Sociais no Header */
+        .social-icons-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
 
-        /* Menu de Opções */
+        .social-icons-header a {
+            color: #fff;
+            font-size: 1.5em; 
+            transition: color 0.3s;
+        }
+        
+        .social-icons-header a:hover {
+            color: #e9b384;
+        }
+
+        /* Menu de Opções (Centralizado) */
         .options-menu {
             display: flex;
             justify-content: center;
+            align-items: center; 
             padding: 20px 0;
             background-color: #f0ead6;
             margin-top: 20px;
             border-radius: 10px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            width: 100%; 
         }
 
-        .option-button {
+        .options-menu a {
             background-color: #8c2f1f;
             color: #fff;
             padding: 10px 20px;
@@ -89,28 +119,50 @@
             transition: background-color 0.3s;
         }
 
-        .option-button:hover {
+        .options-menu a:hover {
             background-color: #6a2419;
         }
         
-        /* Estilos para o Conteúdo Principal (Hospedagem) */
+        /* Estilo do botão do Chatbot no menu */
+        .chatbot-button {
+            display: flex;
+            align-items: center;
+            gap: 8px; 
+            cursor: pointer;
+        }
+        
+        .chatbot-gif-icon {
+            width: 25px; 
+            height: 25px;
+            border-radius: 50%;
+        }
+
+        /* Conteúdo Principal */
+        main {
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        /* Formulário de Hospedagem */
         .hospedagem-form {
             background-color: #fff;
             padding: 30px;
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            max-width: 600px;
-            margin: 30px auto;
-            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 450px;
+            margin: 30px 0;
         }
 
         .hospedagem-form h1 {
+            text-align: center;
             color: #8c2f1f;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
         .form-group {
             margin-bottom: 20px;
+            text-align: left;
         }
 
         .form-group label {
@@ -120,53 +172,94 @@
             color: #555;
         }
 
-        .form-group input[type="date"] {
+        .form-group input {
             width: 100%;
             padding: 10px;
             border: 1px solid #ccc;
             border-radius: 5px;
             box-sizing: border-box;
-            font-size: 1em;
         }
 
         .submit-button {
+            width: 100%;
             background-color: #8c2f1f;
             color: #fff;
-            padding: 15px 30px;
+            padding: 12px;
             border: none;
             border-radius: 5px;
-            font-weight: bold;
+            font-size: 1.1em;
             cursor: pointer;
             transition: background-color 0.3s;
-            font-size: 1.1em;
         }
 
         .submit-button:hover {
             background-color: #6a2419;
         }
-        
+
         /* Rodapé */
         footer {
             background-color: #6a2419;
             color: #fff;
             padding: 20px 0;
             text-align: center;
-            margin-top: 20px;
-        }
-
-        .footer-icons a {
-            color: #fff;
-            font-size: 2em;
-            margin: 0 10px;
-            transition: color 0.3s;
-        }
-        
-        .footer-icons a:hover {
-            color: #e9b384;
+            margin-top: auto; 
+            width: 100%;
         }
 
         .copyright {
             margin-top: 10px;
+        }
+
+        /* Pop-up Style */
+        .popup-container {
+            display: none; 
+            position: fixed;
+            z-index: 1001;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .popup-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 400px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            text-align: center;
+        }
+
+        .close-btn {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close-btn:hover,
+        .close-btn:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .popup-content a {
+            display: inline-block;
+            margin-top: 15px;
+            background-color: #8c2f1f;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -175,30 +268,45 @@
     <header>
         <div class="container">
             <a href="index.html" class="logo">Nhandereko</a>
-            <nav class="menu-principal">
-                <ul>
-                    <li><a href="index.html">Início</a></li>
-                    <li><a href="cadastro.html">Cadastro</a></li>
-                    <li><a href="sobre.html">Sobre</a></li>
-                    <li><a href="faleconosco.html">Fale Conosco</a></li>
-                    <li><a href="etnoturismo.html">Etnoturismo</a></li>
-                    <li><a href="galeria.html">Galeria de Fotos</a></li>
-                    <li><a href="volunturismo.html">Volunturismo</a></li>
-                </ul>
-            </nav>
+            
+            <div class="nav-and-social">
+                <nav class="menu-principal">
+                    <ul>
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="cadastro.html">Cadastro</a></li>
+                        <li><a href="sobre.html">Sobre</a></li>
+                        <li><a href="faleconosco.html">Fale Conosco</a></li>
+                        <li><a href="etnoturismo.html">Etnoturismo</a></li>
+                        <li><a href="galeria.html">Galeria de Fotos</a></li>
+                        <li><a href="volunturismo.html">Volunturismo</a></li>
+                    </ul>
+                </nav>
+                
+                <div class="social-icons-header">
+                    <a href="#" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
         </div>
     </header>
 
     <div class="options-menu">
-        <a href="hospedagem.html" class="option-button">Hospedagem</a>
+        <a href="hospedagem.html" class="option-button">Visitações</a>
         <a href="#" class="option-button">Passeios</a>
         <a href="#" class="option-button">Artesanatos</a>
+        
+        <a href="#" class="option-button chatbot-button" id="chatbot-gif">
+            <p style="margin: 0; font-weight: bold;">Fale Comigo!</p>
+            <img src="chatbot.gif" alt="Ícone de chatbot" class="chatbot-gif-icon">
+        </a>
     </div>
 
     <main>
         <div class="container">
             <div class="hospedagem-form">
-                <h1>Hospedagem</h1>
+                <h1>Visitações</h1>
+                <p style="text-align: center; margin-bottom: 25px;">Verifique a disponibilidade de acomodações na aldeia.</p>
                 <form action="#" method="post">
                     <div class="form-group">
                         <label for="data-inicio">Data de Início:</label>
@@ -216,15 +324,45 @@
 
     <footer>
         <div class="container">
-            <div class="social-icons footer-icons">
-                <a href="#" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                <a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="#" target="_blank" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
-            </div>
-            
             <p class="copyright">&copy; 2024 Nhandereko. Todos os direitos reservados.</p>
         </div>
     </footer>
+    
+    <div id="popup" class="popup-container">
+        <div class="popup-content">
+            <span class="close-btn" id="close-popup">&times;</span>
+            <h2>Nhandereko Bot</h2>
+            <p>Para interagir com o nosso bot no Telegram, clique no botão abaixo.</p>
+            <a href="https://t.me/nhanderebot" target="_blank">Conversar com o Bot</a>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const chatbotGif = document.getElementById('chatbot-gif'); 
+            const popup = document.getElementById('popup');
+            const closeBtn = document.getElementById('close-popup');
+
+            if (chatbotGif && popup && closeBtn) {
+                // Abre o pop-up ao clicar no novo botão
+                chatbotGif.addEventListener('click', (e) => {
+                    e.preventDefault(); 
+                    popup.style.display = 'flex';
+                });
+
+                // Fecha o pop-up ao clicar no botão de fechar
+                closeBtn.addEventListener('click', () => {
+                    popup.style.display = 'none';
+                });
+
+                // Fecha o pop-up ao clicar fora dele
+                window.addEventListener('click', (event) => {
+                    if (event.target === popup) {
+                        popup.style.display = 'none';
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 </html>

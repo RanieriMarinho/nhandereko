@@ -37,6 +37,13 @@
             align-items: center;
             flex-wrap: wrap;
         }
+        
+        /* Novo wrapper para alinhar Menu Principal e Redes Sociais no Header */
+        .nav-and-social {
+            display: flex;
+            align-items: center;
+            gap: 20px; /* Espaço entre o menu principal e os ícones sociais */
+        }
 
         .logo {
             font-size: 2em;
@@ -66,11 +73,30 @@
         .menu-principal a:hover {
             color: #e9b384;
         }
+        
+        /* Estilos dos Ícones Sociais no Header */
+        .social-icons-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
 
-        /* Menu de Opções */
+        .social-icons-header a {
+            color: #fff;
+            font-size: 1.5em; /* Tamanho padrão */
+            transition: color 0.3s;
+        }
+        
+        .social-icons-header a:hover {
+            color: #e9b384;
+        }
+
+
+        /* Menu de Opções (abaixo do header) */
         .options-menu {
             display: flex;
             justify-content: center;
+            align-items: center; /* Alinha itens verticalmente */
             padding: 20px 0;
             background-color: #f0ead6;
             margin-top: 20px;
@@ -78,7 +104,7 @@
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
-        .option-button {
+        .options-menu a {
             background-color: #8c2f1f;
             color: #fff;
             padding: 10px 20px;
@@ -89,31 +115,49 @@
             transition: background-color 0.3s;
         }
 
-        .option-button:hover {
+        .options-menu a:hover {
             background-color: #6a2419;
+        }
+
+        /* Estilo do botão do Chatbot no menu */
+        .chatbot-button {
+            display: flex;
+            align-items: center;
+            gap: 8px; /* Espaço entre o texto e o ícone GIF */
+            cursor: pointer;
+        }
+        
+        .chatbot-gif-icon {
+            width: 25px; /* Tamanho menor para encaixar no menu */
+            height: 25px;
+            border-radius: 50%;
         }
         
         /* Conteúdo Principal */
-        main h1 {
+        main {
+            padding: 40px 0;
             text-align: center;
+        }
+        
+        main h1 {
             color: #8c2f1f;
-            margin-top: 30px;
+            margin-bottom: 20px;
         }
 
         main p {
-            text-align: center;
+            font-size: 1.1em;
             line-height: 1.6;
             max-width: 800px;
             margin: 20px auto;
+            text-align: justify;
         }
 
         .content-image-center {
-            display: block;
-            margin: 20px auto;
             max-width: 100%;
             height: auto;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            display: block;
+            margin: 30px auto;
+            border-radius: 8px;
         }
 
         /* Rodapé */
@@ -122,105 +166,64 @@
             color: #fff;
             padding: 20px 0;
             text-align: center;
-            margin-top: 20px;
-        }
-
-        .footer-icons a {
-            color: #fff;
-            font-size: 2em;
-            margin: 0 10px;
-            transition: color 0.3s;
-        }
-        
-        .footer-icons a:hover {
-            color: #e9b384;
+            width: 100%;
         }
 
         .copyright {
             margin-top: 10px;
         }
 
-        /* Chatbot GIF */
-        .chatbot-container {
-            position: fixed;
-            bottom: 80px;
-            right: 20px;
-            text-align: center;
-            z-index: 1000;
-        }
-
-        .chatbot-container p {
-            font-weight: bold;
-            color: #333;
-            margin-bottom: 5px;
-        }
-
-        .chatbot-gif {
-            width: 100px;
-            height: auto;
-            cursor: pointer;
-        }
-        
-        /* Estilos do Popup */
+        /* Estilos do Chatbot antigo (removidos, mas mantemos o popup) */
+        /* Pop-up Style */
         .popup-container {
-            display: none;
+            display: none; /* Inicia oculto */
             position: fixed;
-            top: 0;
+            z-index: 1001;
             left: 0;
+            top: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0,0,0,0.5);
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
             justify-content: center;
             align-items: center;
-            z-index: 2000;
         }
-        
+
         .popup-content {
-            background-color: #fff;
-            padding: 30px;
-            border-radius: 10px;
-            text-align: center;
-            position: relative;
+            background-color: #fefefe;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
             max-width: 400px;
+            border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            text-align: center;
         }
-        
-        .popup-content h2 {
-            margin-top: 0;
-            color: #8c2f1f;
-        }
-        
-        .popup-content p {
-            margin-bottom: 20px;
-            line-height: 1.5;
-        }
-        
-        .popup-content a {
-            background-color: #8c2f1f;
-            color: #fff;
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background-color 0.3s;
-        }
-        
-        .popup-content a:hover {
-            background-color: #6a2419;
-        }
-        
+
         .close-btn {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            font-size: 2em;
-            cursor: pointer;
             color: #aaa;
-            transition: color 0.3s;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
         }
-        
-        .close-btn:hover {
-            color: #333;
+
+        .close-btn:hover,
+        .close-btn:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .popup-content a {
+            display: inline-block;
+            margin-top: 15px;
+            background-color: #8c2f1f;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -229,17 +232,26 @@
     <header>
         <div class="container">
             <a href="index.html" class="logo">Nhandereko</a>
-            <nav class="menu-principal">
-                <ul>
-                    <li><a href="index.html">Início</a></li>
-                    <li><a href="cadastro.html">Cadastro</a></li>
-                    <li><a href="sobre.html">Sobre</a></li>
-                    <li><a href="faleconosco.html">Fale Conosco</a></li>
-                    <li><a href="etnoturismo.html">Etnoturismo</a></li>
-                    <li><a href="galeria.html">Galeria de Fotos</a></li>
-                    <li><a href="volunturismo.html">Volunturismo</a></li>
-                </ul>
-            </nav>
+            
+            <div class="nav-and-social">
+                <nav class="menu-principal">
+                    <ul>
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="cadastro.html">Cadastro</a></li>
+                        <li><a href="sobre.html">Sobre</a></li>
+                        <li><a href="faleconosco.html">Fale Conosco</a></li>
+                        <li><a href="etnoturismo.html">Etnoturismo</a></li>
+                        <li><a href="galeria.html">Galeria de Fotos</a></li>
+                        <li><a href="volunturismo.html">Volunturismo</a></li>
+                    </ul>
+                </nav>
+                
+                <div class="social-icons-header">
+                    <a href="#" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
         </div>
     </header>
 
@@ -247,6 +259,11 @@
         <a href="hospedagem.html" class="option-button">Visitações</a>
         <a href="#" class="option-button">Passeios</a>
         <a href="#" class="option-button">Artesanatos</a>
+        
+        <a href="#" class="option-button chatbot-button" id="chatbot-gif">
+            <p style="margin: 0; font-weight: bold;">Fale Comigo!</p>
+            <img src="chatbot.gif" alt="Ícone de chatbot" class="chatbot-gif-icon">
+        </a>
     </div>
 
     <main>
@@ -259,20 +276,8 @@
         </div>
     </main>
 
-    <div class="chatbot-container">
-        <p>Fale Comigo!</p>
-        <img id="chatbot-gif" src="chatbot.gif" alt="Ícone de chatbot" class="chatbot-gif">
-    </div>
-
     <footer>
         <div class="container">
-            <div class="social-icons footer-icons">
-                <a href="#" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                <a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="https://t.me/nhanderebot" target="_blank" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
-            </div>
-            
             <p class="copyright">&copy; 2024 Nhandereko. Todos os direitos reservados.</p>
         </div>
     </footer>
@@ -288,13 +293,15 @@
     
     <script>
         document.addEventListener('DOMContentLoaded', (event) => {
-            const chatbotGif = document.getElementById('chatbot-gif');
+            // O ID 'chatbot-gif' agora aponta para o elemento <a> dentro do menu
+            const chatbotGif = document.getElementById('chatbot-gif'); 
             const popup = document.getElementById('popup');
             const closeBtn = document.getElementById('close-popup');
 
             if (chatbotGif && popup && closeBtn) {
-                // Abre o pop-up ao clicar no GIF
-                chatbotGif.addEventListener('click', () => {
+                // Abre o pop-up ao clicar no novo botão
+                chatbotGif.addEventListener('click', (e) => {
+                    e.preventDefault(); // Impede o link padrão de funcionar
                     popup.style.display = 'flex';
                 });
 

@@ -1,0 +1,98 @@
+/* ========================================================= */
+/* --- ESTILOS PADRONIZADOS PARA TODO O CORPO DA PÁGINA --- */
+/* ========================================================= */
+
+/* --- Estilos para o Menu de Opções (.options-menu) --- */
+.options-menu {
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+    /* Aplicando a estética de card e transparência leve */
+    background-color: rgba(240, 234, 214, 0.9); /* Cor de fundo clara semi-transparente */
+    margin: 20px auto;
+    max-width: 1200px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.option-button {
+    /* Mantendo o estilo de botão consistente com a paleta */
+    background-color: #8c2f1f;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.option-button:hover {
+    background-color: #6a2419;
+}
+
+/* --- Estilos para o Conteúdo Principal (main .container) --- */
+main .container {
+    /* Transformando o conteúdo em um "card" branco */
+    background-color: #ffffff; 
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Sombra mais forte para destacar */
+    margin-top: 20px;
+    margin-bottom: 20px;
+    /* Garantindo que o conteúdo preencha a tela corretamente */
+    max-width: 1200px; 
+    box-sizing: border-box;
+    /* Sobrescreve o display:flex ou justify-content do container global */
+    display: block; 
+}
+
+/* Ajustes de tipografia dentro do conteúdo */
+main h1 {
+    text-align: center;
+    color: #8c2f1f;
+    margin-top: 0; 
+}
+
+main p {
+    text-align: justify; /* Deixa o texto do corpo justificado */
+    line-height: 1.7;
+    max-width: 100%;
+    margin: 20px auto;
+}
+
+.content-image-center {
+    display: block;
+    margin: 30px auto;
+    max-width: 80%;
+    height: auto;
+    border-radius: 8px; 
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* --- Estilos para o Rodapé (footer) --- */
+footer {
+    /* Combinando com o estilo do header: semi-transparente e arredondado */
+    background-color: rgba(106, 36, 25, 0.9); 
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: 40px; 
+    border-radius: 10px 10px 0 0; /* Cantos arredondados na parte superior */
+    box-shadow: 0 -4px 6px rgba(0,0,0,0.2);
+}
+
+/* ========================================================= */
+/* --- Remova ou mantenha os estilos do Header (já atualizados) --- */
+/* ========================================================= */
+
+header {
+    background-color: rgba(140, 47, 31, 0.9); 
+    padding: 15px 0;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    border-radius: 0 0 10px 10px; 
+    position: sticky; 
+    top: 0;
+    z-index: 999;
+}
+/* ... (Mantenha os estilos do .logo, .nav-and-social, .menu-principal, .social-icons-header e seus a:hover) ... */
