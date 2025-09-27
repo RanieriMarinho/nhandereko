@@ -1,42 +1,44 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nhandereko - Visitações</title>
+    <title>Busca de Experiências em Aldeias Indígenas - V5.1 com Imagens</title>
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    
     <style>
-        /* Estilos Globais */
+        /* Cores Padrão do Menu: 
+         * Principal: #8c2f1f (Marrom Escuro)
+         * Secundária/Hover: #e9b384 (Bege/Ouro)
+         * Fundo: #f8f5f0 (Bege Claro)
+        */
+
+        /* Estilos Globais de index.html */
         body {
             font-family: 'Roboto', Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f8f5f0;
+            background-color: #f8f5f0; /* Fundo padrão de index.html */
             color: #333;
             box-sizing: border-box;
         }
 
-        /* Container Principal */
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
         }
-        
-        /* NOVO: Estilo da imagem no topo para a mesma configuração que index.html */
+
         .header-image {
             width: 100%;
             height: auto;
             display: block;
         }
 
-        /* Menu Superior */
         header {
-            background-color: #8c2f1f;
+            background-color: #8c2f1f; /* Marrom Escuro */
             padding: 15px 0;
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
@@ -46,14 +48,6 @@
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            flex-direction: row; 
-        }
-
-        /* Novo wrapper para alinhar Menu Principal e Redes Sociais no Header */
-        .nav-and-social {
-            display: flex;
-            align-items: center;
-            gap: 20px; 
         }
 
         .logo {
@@ -61,6 +55,12 @@
             font-weight: bold;
             color: #fff;
             text-decoration: none;
+        }
+        
+        .nav-and-social {
+            display: flex;
+            align-items: center;
+            gap: 20px; 
         }
 
         .menu-principal ul {
@@ -84,8 +84,7 @@
         .menu-principal a:hover {
             color: #e9b384;
         }
-        
-        /* Estilos dos Ícones Sociais no Header */
+
         .social-icons-header {
             display: flex;
             align-items: center;
@@ -94,7 +93,7 @@
 
         .social-icons-header a {
             color: #fff;
-            font-size: 1.5em; 
+            font-size: 1.5em;
             transition: color 0.3s;
         }
         
@@ -102,17 +101,16 @@
             color: #e9b384;
         }
 
-        /* Menu de Opções (Centralizado) */
         .options-menu {
             display: flex;
             justify-content: center;
-            align-items: center; 
+            align-items: center;
             padding: 20px 0;
-            background-color: #f0ead6;
+            background-color: #f0ead6; /* Cor de fundo clara para o menu de opções */
             margin-top: 20px;
             border-radius: 10px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            width: 100%; 
+            width: 100%;
         }
 
         .options-menu a {
@@ -129,96 +127,59 @@
         .options-menu a:hover {
             background-color: #6a2419;
         }
-        
-        /* Estilo do botão do Chatbot no menu */
+
         .chatbot-button {
             display: flex;
             align-items: center;
-            gap: 8px; 
+            gap: 8px;
             cursor: pointer;
         }
         
         .chatbot-gif-icon {
-            width: 25px; 
+            width: 25px;
             height: 25px;
             border-radius: 50%;
         }
 
-        /* Conteúdo Principal */
         main {
             padding: 40px 0;
             text-align: center;
         }
         
-        /* Formulário de Hospedagem */
-        .hospedagem-form {
-            background-color: #fff;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            max-width: 450px;
-            margin: 30px 0;
-        }
-
-        .hospedagem-form h1 {
-            text-align: center;
-            color: #8c2f1f;
-            margin-bottom: 25px;
-        }
-
-        .form-group {
+        main h1 {
+            color: #8c2f1f; 
             margin-bottom: 20px;
-            text-align: left;
         }
 
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-            color: #555;
-        }
-
-        /* Regra atualizada para incluir o <select> */
-        .form-group input, .form-group select {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-sizing: border-box;
-        }
-
-        .submit-button {
-            width: 100%;
-            background-color: #8c2f1f;
-            color: #fff;
-            padding: 12px;
-            border: none;
-            border-radius: 5px;
-            font-size: 1.1em;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .submit-button:hover {
-            background-color: #6a2419;
-        }
-
-        /* Rodapé */
+        /* Rodapé de index.html */
         footer {
             background-color: #6a2419;
             color: #fff;
             padding: 20px 0;
             text-align: center;
-            margin-top: auto; 
             width: 100%;
+        }
+
+        .social-icons {
+            margin-bottom: 10px;
+        }
+
+        .social-icons a {
+            color: white;
+            font-size: 1.5em;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+
+        .social-icons a:hover {
+            color: #e5ccae;
         }
 
         .copyright {
             margin-top: 10px;
         }
-
-        /* Pop-up Style */
+        
+        /* Estilos do Pop-up (Chatbot) de index.html */
         .popup-container {
             display: none; 
             position: fixed;
@@ -228,7 +189,7 @@
             width: 100%;
             height: 100%;
             overflow: auto;
-            background-color: rgba(0,0,0,0.4);
+            background-color: rgba(0,0,0,0.4); 
             justify-content: center;
             align-items: center;
         }
@@ -269,16 +230,170 @@
             border-radius: 5px;
             font-weight: bold;
         }
+
+        /* Estilos Únicos de Hospedagem.html (Ajustados ao Padrão de Cores) */
+        
+        .filter-content-container {
+            max-width: 900px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            background-color: #f8f5f0; 
+        }
+
+        .filter-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr); 
+            gap: 15px;
+            padding: 20px;
+            border: 1px solid #e9b384; 
+            border-radius: 8px;
+            margin-bottom: 20px;
+            background-color: #fcfcfc; 
+        }
+        
+        input[type="date"], input[type="number"], input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box; 
+        }
+        
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #8c2f1f; 
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            grid-column: 1 / -1; 
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #6a2419; 
+        }
+        
+        /* Resultados */
+        #resultado {
+            margin-top: 30px;
+            padding: 20px;
+            border-radius: 5px;
+            border-left: 5px solid #8c2f1f; 
+            background-color: #f0ead6; 
+            min-height: 100px;
+            text-align: left;
+        }
+        #resultado h2 {
+            margin-top: 0;
+            color: #8c2f1f; 
+        }
+        .pousada-info {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: white;
+            gap: 15px;
+        }
+        
+        /* Estilo para o nome da aldeia clicável */
+        .pousada-info h3 {
+             margin-top: 0;
+             color: #8c2f1f; 
+             cursor: pointer; /* Indica que é clicável */
+             text-decoration: underline; /* Ajuda a indicar que é um link/botão */
+        }
+        .pousada-info h3:hover {
+             color: #6a2419;
+        }
+        
+        /* Cores de status de disponibilidade */
+        .disponivel {
+            color: #007bff; 
+            font-weight: bold;
+        }
+        .indisponivel {
+            color: red; 
+            font-weight: bold;
+        }
+
+        /* Modal (Lightbox) Padrão para Imagens e Mapas */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1002;
+            padding-top: 50px; /* Reduzido para dar espaço ao mapa */
+            left: 0;
+            top: 0;
+            width: 100%; 
+            height: 100%; 
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.9);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 90%;
+            max-width: 800px; /* Aumentado para o mapa */
+            height: auto;
+            animation-name: zoom;
+            animation-duration: 0.6s;
+        }
+        
+        /* Estilo específico para o iframe do mapa */
+        .map-iframe {
+            width: 100%;
+            height: 500px; /* Altura fixa para o mapa */
+            border: none;
+            border-radius: 8px;
+        }
+
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        
+        @keyframes zoom {
+            from {transform:scale(0)} 
+            to {transform:scale(1)}
+        }
     </style>
 </head>
 <body>
-    
-<img src="FAIXA4_BRANCA.png" alt="Padrão cultural Guarani" class="header-image"> 
+    <audio id="background-audio" loop autoplay>
+        <source src="Nhanerãmoi'i Karai Poty - Memória Viva Guarani (youtube).mp3" type="audio/mpeg">
+        Seu navegador não suporta a tag de áudio.
+    </audio>
+
+    <img src="FAIXA4_BRANCA.png" alt="Padrão cultural Guarani" class="header-image">
 
     <header>
         <div class="container">
             <a href="index.html" class="logo">Nhandereko</a>
-            
             <div class="nav-and-social">
                 <nav class="menu-principal">
                     <ul>
@@ -291,7 +406,6 @@
                         <li><a href="volunturismo.html">Volunturismo</a></li>
                     </ul>
                 </nav>
-                
                 <div class="social-icons-header">
                     <a href="#" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
                     <a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
@@ -305,7 +419,6 @@
         <a href="hospedagem.html" class="option-button">Visitações</a>
         <a href="passeios.html" class="option-button">Passeios</a>
         <a href="artesanatos.html" class="option-button">Artesanatos</a>
-        
         <a href="#" class="option-button chatbot-button" id="chatbot-gif">
             <p style="margin: 0; font-weight: bold;">Fale Comigo!</p>
             <img src="chatbot.gif" alt="Ícone de chatbot" class="chatbot-gif-icon">
@@ -313,44 +426,70 @@
     </div>
 
     <main>
-        <div class="container">
-            <div class="hospedagem-form">
-                <h1>Visitações</h1>
-                <p style="text-align: center; margin-bottom: 25px;">Verifique a disponibilidade de acomodações na aldeia.</p>
-                <form action="#" method="post">
-                    <div class="form-group">
-                        <label for="aldeia">Selecione a Aldeia:</label>
-                        <select id="aldeia" name="aldeia" required>
-                            <option value="" disabled selected>Escolha uma opção</option>
-                            <option value="aldeia1">Aldeia Tekoá Yvy Poty</option>
-                            <option value="aldeia2">Aldeia Xondaro Yvy Rupá</option>
-                            <option value="aldeia3">Aldeia Mbya Guarani Krukutu</option>
-                            <option value="aldeia4">Aldeia Paranapuã</option>
-                            <option value="aldeia5">Aldeia Renascer</option>
-                            <option value="aldeia6">Aldeia Rio Silveiras</option>
-                            <option value="outra">Outra Aldeia</option>
-                        </select>
+        <div class="filter-content-container">
+            <h1>Busca de Experiências em Aldeias Indígenas</h1>
+            <h3>Clique com o mouse sobre o nome da Aldeia para abrir o Google Maps</h3>
+
+            <div class="filter-grid">
+                
+                <div class="form-group">
+                    <label>Cidade/UF mais próxima:</label>
+                    <div class="input-inline">
+                        <input type="text" id="cidade" placeholder="Cidade">
+                        <input type="text" id="uf" maxlength="2" placeholder="UF">
                     </div>
-                    <div class="form-group">
-                        <label for="data-inicio">Data de Início:</label>
-                        <input type="date" id="data-inicio" name="data-inicio" min="2025-01-01" max="2025-12-31" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Custo Diário (R$):</label>
+                    <div class="input-inline">
+                        <input type="number" id="valorMinimo" placeholder="0" value="0" min="0">
+                        <input type="number" id="valorMaximo" placeholder="1000" value="1000" min="0">
                     </div>
-                    <div class="form-group">
-                        <label for="data-final">Data Final:</label>
-                        <input type="date" id="data-final" name="data-final" min="2025-01-01" max="2025-12-31" required>
-                    </div>
-                    <button type="submit" class="submit-button">Verificar Disponibilidade</button>
-                </form>
+                </div>
+
+                <div class="form-group">
+                    <label for="numQuartos">Mín. Ocas/Malocas:</label>
+                    <input type="number" id="numQuartos" placeholder="Ex: 1" min="1">
+                </div>
+
+                <div class="form-group">
+                    <label for="nomePousada">Nome da Aldeia (Busca Parcial):</label>
+                    <input type="text" id="nomePousada" placeholder="Ex: Pataxó">
+                </div>
+
+                <div class="form-group">
+                    <label>Início/Fim da Visita:</label>
+                    <input type="date" id="checkin" title="Início da Visita">
+                    <input type="date" id="checkout" title="Fim da Visita" style="margin-top: 5px;">
+                </div>
+
+                <button onclick="aplicarFiltros()">Buscar Aldeias</button>
+            </div>
+
+            <hr>
+
+            <div id="resultado">
+                <h2>Resultados da Busca</h2>
+                <p>Preencha os filtros para encontrar a melhor experiência de vivência indígena.</p>
             </div>
         </div>
     </main>
-
-    <footer>
-        <div class="container">
-            <p class="copyright">&copy; 2024 Nhandereko. Todos os direitos reservados.</p>
-        </div>
-    </footer>
     
+    <div id="imageModal" class="modal" onclick="closeModal()">
+        <span class="close" onclick="closeModal(event)">&times;</span> 
+        <img class="modal-content" id="img01">
+    </div>
+    
+    <div id="mapModal" class="modal" onclick="closeModal(event)">
+        <span class="close" onclick="closeModal(event)">&times;</span>
+        <div class="modal-content" id="map-content">
+            <h2 style="color:white; text-align:center;">Localização Aproximada</h2>
+            <div id="map-container"></div>
+        </div>
+    </div>
+
+
     <div id="popup" class="popup-container">
         <div class="popup-content">
             <span class="close-btn" id="close-popup">&times;</span>
@@ -359,32 +498,358 @@
             <a href="https://t.me/nhanderebot" target="_blank">Conversar com o Bot</a>
         </div>
     </div>
-    
+
+    <footer>
+        <div class="container">
+            <div class="social-icons footer-icons">
+                <a href="#" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://t.me/nhanderebot" target="_blank" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+            </div>
+            
+            <p class="copyright">&copy; 2024 Nhandereko. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
     <script>
-        document.addEventListener('DOMContentLoaded', (event) => {
+        // --- FUNÇÕES DOS MODAIS ---
+
+        // Função para fechar os modais
+        function closeModal(event) {
+            // Verifica se o evento é um clique fora do conteúdo ou no botão de fechar
+            if (event && event.target.classList.contains('modal')) {
+                document.getElementById("imageModal").style.display = "none";
+                document.getElementById("mapModal").style.display = "none";
+            } else if (event && event.target.classList.contains('close')) {
+                document.getElementById("imageModal").style.display = "none";
+                document.getElementById("mapModal").style.display = "none";
+            }
+        }
+        
+        // Função para abrir o modal da imagem
+        function openImageModal(imgSrc) {
+            const modal = document.getElementById("imageModal");
+            const modalImg = document.getElementById("img01");
+            
+            modal.style.display = "flex";
+            modalImg.src = imgSrc;
+        }
+        
+        // Função NOVA: Abre o modal do Google Maps
+        function showLocationMap(pousadaId) {
+            const pousada = pousadas[pousadaId];
+            if (!pousada) return;
+
+            const mapModal = document.getElementById("mapModal");
+            const mapContainer = document.getElementById("map-container");
+
+            // Limpa o conteúdo anterior
+            mapContainer.innerHTML = '';
+            
+            // Texto de busca focado na cidade e estado
+            const query = `Aldeia Indígena ${pousada.nome} ${pousada.cidade} ${pousada.uf}`;
+            
+            // URL do iframe do Google Maps (usa o embed e a query)
+            // A Aldeia Indígena é adicionada para tentar refinar a busca
+            const mapUrl = `https://maps.google.com/maps?q=${encodeURIComponent(query)}&z=10&output=embed`;
+
+            const iframe = document.createElement('iframe');
+            iframe.src = mapUrl;
+            iframe.className = 'map-iframe';
+            iframe.allowFullscreen = true;
+            iframe.loading = "lazy";
+            iframe.title = `Localização da ${pousada.nome} no Google Maps`;
+            
+            mapContainer.appendChild(iframe);
+            mapModal.style.display = "flex";
+        }
+
+
+        // --- BANCO DE DADOS SIMULADO ---
+        const pousadas = { 
+            // --- ALDEIAS ORIGINAIS E SP (4 aldeias restantes: 1 RJ, 1 BA, 1 PE, 1 AM, 1 SP) ---
+            'guarani': {
+                id: 'guarani',
+                nome: "Aldeia Tekoa Jataí (Guarani)",
+                descricao: "Vivência cultural próxima à Mata Atlântica. Artesanato e ocas coletivas.",
+                valorDiaria: 180, cidade: "Paraty", uf: "RJ", numQuartos: 3, 
+                indisponivel: ['2025-12-24', '2025-12-25', '2026-01-01', '2026-01-02'],
+                imagemUrl: "a01.jpeg" 
+            },
+            'pataxo': {
+                id: 'pataxo',
+                nome: "Aldeia Barra Velha (Pataxó)",
+                descricao: "Turismo de base comunitária na Costa do Descobrimento. Foco em culinária e danças.",
+                valorDiaria: 250, cidade: "Porto Seguro", uf: "BA", numQuartos: 2, 
+                indisponivel: ['2025-11-15', '2025-11-16', '2025-11-17'],
+                imagemUrl: "a02.jpeg" 
+            },
+            'chapeu': {
+                id: 'chapeu',
+                nome: "Aldeia Chapéu de Palha (Fulni-ô)",
+                descricao: "Foco em rituais e línguas nativas. Recomenda-se estadias longas.",
+                valorDiaria: 100, cidade: "Águas Belas", uf: "PE", numQuartos: 4, 
+                indisponivel: [],
+                imagemUrl: "a03.jpeg" 
+            },
+            'yanomami': {
+                id: 'yanomami',
+                nome: "Comunidade Watorikɨ (Yanomami)",
+                descricao: "Imersão profunda na floresta amazônica. Requer logística e autorização prévia.",
+                valorDiaria: 400, cidade: "São Gabriel da Cachoeira", uf: "AM", numQuartos: 1, 
+                indisponivel: ['2025-10-10', '2025-10-11'],
+                imagemUrl: "a04.jpeg" 
+            },
+            'krukutu': {
+                id: 'krukutu',
+                nome: "Aldeia Krukutu (Guarani Mbya)",
+                descricao: "Zona sul de São Paulo, próxima à represa Billings. Foco em trilhas e ecoturismo.",
+                valorDiaria: 160, cidade: "São Paulo", uf: "SP", numQuartos: 3, 
+                indisponivel: ['2025-12-01', '2025-12-02', '2025-12-03'],
+                imagemUrl: "a05.jpeg" 
+            },
+
+            // --- ALDEIAS GUARANI - RS, SC, PR, MS, RJ, ES, PA (19) ---
+            'rs_nhu_poti': {
+                id: 'rs_nhu_poti',
+                nome: "Aldeia Nhu Poti (Guarani)",
+                descricao: "Litoral norte gaúcho. Foco em produção de cestaria e agricultura.",
+                valorDiaria: 160, cidade: "Torres", uf: "RS", numQuartos: 3, indisponivel: ['2026-02-05'],
+                imagemUrl: "a06.jpeg" 
+            },
+            'rs_canta_galo': {
+                id: 'rs_canta_galo',
+                nome: "Aldeia Canta Galo (Guarani Mbya)",
+                descricao: "Próximo à cidade. Vivência urbana e rural.",
+                valorDiaria: 120, cidade: "Porto Alegre", uf: "RS", numQuartos: 2, indisponivel: ['2026-01-01'],
+                imagemUrl: "a07.jpeg" 
+            },
+            'rs_potrero': {
+                id: 'rs_potrero',
+                nome: "Aldeia Potrero (Guarani)",
+                descricao: "Comunidade tradicional com foco em rituais e cantos.",
+                valorDiaria: 210, cidade: "Tenente Portela", uf: "RS", numQuartos: 4, indisponivel: [],
+                imagemUrl: "a08.jpeg" 
+            },
+            'rs_solidao': {
+                id: 'rs_solidao',
+                nome: "Aldeia Solidão (Guarani)",
+                descricao: "Isolada, ideal para quem busca imersão na natureza.",
+                valorDiaria: 190, cidade: "São Leopoldo", uf: "RS", numQuartos: 2, indisponivel: ['2025-11-01'],
+                imagemUrl: "a09.jpeg" 
+            },
+            'rs_arvorezinha': {
+                id: 'rs_arvorezinha',
+                nome: "Aldeia Arvorezinha (Guarani Mbya)",
+                descricao: "Localizada em região de floresta densa.",
+                valorDiaria: 170, cidade: "Canoas", uf: "RS", numQuartos: 3, indisponivel: [],
+                imagemUrl: "a10.jpeg" 
+            },
+            'sc_morro_dos_caios': {
+                id: 'sc_morro_dos_caios',
+                nome: "Aldeia Morro dos Caídos (Guarani)",
+                descricao: "Com vista para o mar. Próxima a Florianópolis.",
+                valorDiaria: 280, cidade: "Palhoça", uf: "SC", numQuartos: 3, indisponivel: ['2025-12-25'],
+                imagemUrl: "a11.jpeg" 
+            },
+            'sc_guarani_litoral': {
+                id: 'sc_guarani_litoral',
+                nome: "Aldeia Tekoá Mirim (Guarani)",
+                descricao: "No litoral catarinense, foco em culinária local.",
+                valorDiaria: 200, cidade: "Imbituba", uf: "SC", numQuartos: 2, indisponivel: [],
+                imagemUrl: "a12.jpeg" 
+            },
+            'sc_xanxere': {
+                id: 'sc_xanxere',
+                nome: "Aldeia Tekoá Marangatu (Guarani)",
+                descricao: "No oeste do estado, rica em tradições e rituais.",
+                valorDiaria: 145, cidade: "Xanxerê", uf: "SC", numQuartos: 5, indisponivel: ['2025-10-20'],
+                imagemUrl: "a13.jpeg" 
+            },
+            'sc_litoral_norte': {
+                id: 'sc_litoral_norte',
+                nome: "Aldeia Yvy Katu (Guarani)",
+                descricao: "Próxima a praias populares.",
+                valorDiaria: 230, cidade: "Balneário Camboriú", uf: "SC", numQuartos: 2, indisponivel: [],
+                imagemUrl: "a14.jpeg" 
+            },
+            'pr_caminho_do_peabiru': {
+                id: 'pr_caminho_do_peabiru',
+                nome: "Aldeia Araçaí (Guarani)",
+                descricao: "No interior do Paraná, ligada ao Caminho do Peabiru.",
+                valorDiaria: 170, cidade: "Piraquara", uf: "PR", numQuartos: 4, indisponivel: ['2025-11-10'],
+                imagemUrl: "a15.jpeg" 
+            },
+            'pr_litoral': {
+                id: 'pr_litoral',
+                nome: "Aldeia Tekoá Jakupé (Guarani)",
+                descricao: "Localizada no litoral paranaense.",
+                valorDiaria: 190, cidade: "Paranaguá", uf: "PR", numQuartos: 3, indisponivel: [],
+                imagemUrl: "a16.jpeg" 
+            },
+            'pr_curitiba': {
+                id: 'pr_curitiba',
+                nome: "Aldeia Kakané Porã (Guarani)",
+                descricao: "Comunidade próxima à capital, com forte intercâmbio cultural.",
+                valorDiaria: 155, cidade: "Curitiba", uf: "PR", numQuartos: 2, indisponivel: ['2025-12-05'],
+                imagemUrl: "a17.jpeg" 
+            },
+            'ms_kaiowa_reserva': {
+                id: 'ms_kaiowa_reserva',
+                nome: "Aldeia Tey'ikue (Guarani Kaiowá)",
+                descricao: "No sul do estado. Foco em desafios territoriais e preservação cultural.",
+                valorDiaria: 135, cidade: "Caarapó", uf: "MS", numQuartos: 5, indisponivel: [],
+                imagemUrl: "a18.jpeg" 
+            },
+            'ms_guarani_fronteira': {
+                id: 'ms_guarani_fronteira',
+                nome: "Aldeia Ñande Ru (Guarani)",
+                descricao: "Comunidade próxima à fronteira com o Paraguai.",
+                valorDiaria: 110, cidade: "Coronel Sapucaia", uf: "MS", numQuartos: 3, indisponivel: ['2026-01-20'],
+                imagemUrl: "a19.jpeg" 
+            },
+            'ms_dourados': {
+                id: 'ms_dourados',
+                nome: "Aldeia Bororó (Guarani Kaiowá)",
+                descricao: "Localizada na região de Dourados, grande concentração populacional.",
+                valorDiaria: 145, cidade: "Dourados", uf: "MS", numQuartos: 4, indisponivel: [],
+                imagemUrl: "a20.jpeg" 
+            },
+            'rj_tapema': {
+                id: 'rj_tapema',
+                nome: "Aldeia Tekoá Tapema (Guarani)",
+                descricao: "Litoral carioca, próxima à Restinga de Marambaia.",
+                valorDiaria: 250, cidade: "Guaratiba", uf: "RJ", numQuartos: 2, indisponivel: ['2025-11-25'],
+                imagemUrl: "a21.jpeg" 
+            },
+            'rj_serra': {
+                id: 'rj_serra',
+                nome: "Aldeia Mata Verde (Guarani)",
+                descricao: "Região serrana do estado. Foco em plantas medicinais.",
+                valorDiaria: 175, cidade: "Caxias", uf: "RJ", numQuartos: 3, indisponivel: [],
+                imagemUrl: "a22.jpeg" 
+            },
+            'es_litoral': {
+                id: 'es_litoral',
+                nome: "Aldeia Boa Esperança (Guarani)",
+                descricao: "Próxima à Reserva de Comboios. Atividades de preservação marinha.",
+                valorDiaria: 195, cidade: "Conceição da Barra", uf: "ES", numQuartos: 2, indisponivel: ['2025-12-15'],
+                imagemUrl: "a23.jpeg" 
+            },
+            'es_serra': {
+                id: 'es_serra',
+                nome: "Aldeia Caieiras Velhas (Guarani)",
+                descricao: "Região de serra capixaba, com clima mais ameno.",
+                valorDiaria: 160, cidade: "Vitória", uf: "ES", numQuartos: 3, indisponivel: [],
+                imagemUrl: "a24.jpeg" 
+            },
+            'pa_tapajos': {
+                id: 'pa_tapajos',
+                nome: "Aldeia Rio Tapajós (Guarani)",
+                descricao: "Comunidade na bacia do Tapajós, com influência ribeirinha.",
+                valorDiaria: 215, cidade: "Santarém", uf: "PA", numQuartos: 3, indisponivel: [],
+                imagemUrl: "a25.jpeg" 
+            }
+        };
+
+        // --- FUNÇÃO DE FILTRAGEM ---
+
+        function aplicarFiltros() {
+            // 1. Obter e tratar os valores dos filtros
+            const cidade = document.getElementById('cidade').value.trim().toLowerCase();
+            const uf = document.getElementById('uf').value.trim().toUpperCase();
+            
+            const valorMinimo = parseFloat(document.getElementById('valorMinimo').value) || 0;
+            const valorMaximo = parseFloat(document.getElementById('valorMaximo').value) || Infinity;
+            const numQuartosMin = parseInt(document.getElementById('numQuartos').value) || 0;
+            const nomePousada = document.getElementById('nomePousada').value.trim().toLowerCase();
+            
+            // 2. Aplicar a lógica de filtragem
+            const resultados = Object.values(pousadas).filter(pousada => {
+                const cidadeMatch = !cidade || pousada.cidade.toLowerCase().includes(cidade);
+                const ufMatch = !uf || pousada.uf.toUpperCase() === uf;
+                const valorMatch = pousada.valorDiaria >= valorMinimo && pousada.valorDiaria <= valorMaximo;
+                const quartosMatch = pousada.numQuartos >= numQuartosMin;
+                const nomeMatch = !nomePousada || pousada.nome.toLowerCase().includes(nomePousada);
+                const disponibilidadeMatch = true; 
+
+                return cidadeMatch && ufMatch && valorMatch && quartosMatch && nomeMatch && disponibilidadeMatch;
+            });
+
+            // 3. Exibir resultados
+            const resultadoDiv = document.getElementById('resultado');
+            resultadoDiv.innerHTML = '<h2>Resultados da Busca</h2>';
+
+
+            if (resultados.length === 0) {
+                resultadoDiv.innerHTML += '<p>Nenhuma aldeia encontrada com os filtros especificados.</p>';
+            } else {
+                resultados.forEach(pousada => {
+                    const isDisponivel = pousada.indisponivel.length === 0 ? true : false; 
+                    const status = isDisponivel ? '<span class="disponivel">Disponível</span>' : '<span class="indisponivel">Indisponível em datas chave</span>';
+
+                    // A chamada da função showLocationMap(pousada.id) é adicionada ao evento onclick do <h3>
+                    resultadoDiv.innerHTML += `
+                        <div class="pousada-info">
+                            <img src="${pousada.imagemUrl}" 
+                                 alt="Imagem da ${pousada.nome}"
+                                 onclick="openImageModal(this.src)">
+                            <div class="pousada-details">
+                                <h3 onclick="showLocationMap('${pousada.id}')">${pousada.nome}</h3>
+                                <p><strong>Local:</strong> ${pousada.cidade} - ${pousada.uf}</p>
+                                <p><strong>Diária Média:</strong> R$ ${pousada.valorDiaria.toFixed(2).replace('.', ',')}</p>
+                                <p><strong>Ocas/Malocas Disponíveis:</strong> ${pousada.numQuartos}</p>
+                                <p><strong>Status:</strong> ${status}</p>
+                                <p>${pousada.descricao}</p>
+                            </div>
+                        </div>
+                    `;
+                });
+            }
+        }
+
+        // Função auxiliar para formatar a data de hoje para o padrão 'YYYY-MM-DD'
+        function getTodayDateFormatted() {
+            const today = new Date();
+            const year = today.getFullYear();
+            const month = String(today.getMonth() + 1).padStart(2, '0');
+            const day = String(today.getDate()).padStart(2, '0');
+            return `${year}-${month}-${day}`;
+        }
+        
+        // --- INICIALIZAÇÃO ---
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. Configura a data atual
+            const today = getTodayDateFormatted();
+            document.getElementById('checkin').value = today;
+            document.getElementById('checkout').value = today;
+
+            // 2. Configura o chatbot
             const chatbotGif = document.getElementById('chatbot-gif'); 
             const popup = document.getElementById('popup');
             const closeBtn = document.getElementById('close-popup');
 
             if (chatbotGif && popup && closeBtn) {
-                // Abre o pop-up ao clicar no novo botão
                 chatbotGif.addEventListener('click', (e) => {
                     e.preventDefault(); 
                     popup.style.display = 'flex';
                 });
 
-                // Fecha o pop-up ao clicar no botão de fechar
                 closeBtn.addEventListener('click', () => {
                     popup.style.display = 'none';
                 });
 
-                // Fecha o pop-up ao clicar fora dele
+                // Reutiliza closeModal para o popup do chatbot (melhoria)
                 window.addEventListener('click', (event) => {
                     if (event.target === popup) {
                         popup.style.display = 'none';
                     }
                 });
             }
+
+            // 3. Aplica os filtros iniciais
+            aplicarFiltros();
         });
     </script>
 </body>
