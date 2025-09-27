@@ -144,7 +144,23 @@
         /* Conteúdo Principal */
         main {
             padding: 40px 0;
-            text-align: center;
+            text-align: center; /* Para centralizar o H1 */
+        }
+
+        /* Novo wrapper Flexbox para layout lado a lado */
+        .content-flex-wrapper {
+            display: flex;
+            justify-content: center; /* Centra o bloco total (conteúdo + chatbot) */
+            gap: 20px; /* Espaço entre a imagem e o chatbot */
+            margin: 0 auto;
+            align-items: flex-start; /* Alinha no topo */
+        }
+
+        /* Bloco principal de texto e imagem */
+        .main-text-and-image {
+            max-width: 800px; /* Garante que o conteúdo de texto e imagem não exceda 800px */
+            width: 100%; 
+            text-align: left; 
         }
         
         main h1 {
@@ -155,8 +171,7 @@
         main p {
             font-size: 1.1em;
             line-height: 1.6;
-            max-width: 800px;
-            margin: 20px auto;
+            margin: 20px 0; 
             text-align: justify;
         }
 
@@ -164,9 +179,46 @@
             max-width: 100%;
             height: auto;
             display: block;
-            margin: 30px auto;
+            margin: 30px 0; /* Alinhamento esquerdo dentro do bloco .main-text-and-image */
             border-radius: 8px;
         }
+        
+        /* Container do Chatbot (ao lado da imagem principal) */
+        .chatbot-container-wrapper {
+            width: 160px; /* Largura fixa igual ao ícone */
+            flex-shrink: 0; /* Não permite que ele encolha */
+            padding-top: 120px; /* Simula o levantamento de 8 linhas acima do rodapé (pelo Flexbox) */
+        }
+        
+        .chatbot-footer-link {
+            text-align: right; 
+            padding-bottom: 0; 
+            margin-top: 0;
+        }
+        
+        .chatbot-footer-link a {
+            display: inline-block; 
+            text-decoration: none; 
+            color: #333; 
+            transition: opacity 0.3s;
+        }
+        .chatbot-footer-link a:hover {
+            opacity: 0.8;
+        }
+        .chatbot-footer-text {
+            font-weight: bold;
+            color: #8c2f1f; 
+            margin: 0 0 5px 0;
+            font-size: 1.0em; 
+            text-align: center; 
+        }
+        .chatbot-footer-icon {
+            width: 100px; /* Tamanho final */
+            height: 100px;
+            border-radius: 50%;
+            cursor: pointer; /* Indica que é clicável */
+        }
+
 
         /* Rodapé */
         footer {
@@ -248,7 +300,6 @@
             border-radius: 5px;
             font-weight: bold;
         }
-
     </style>
 </head>
 <body>
@@ -296,10 +347,27 @@
     <main>
         <div class="container">
             <h1>Bem-vindo ao Nhandereko</h1>
-            <p>
-                Este é o espaço dedicado à filosofia de vida do povo Guarani. Explore a riqueza de sua cultura, seus rituais, artesanato e a conexão profunda com a natureza.
-                <img src="FOTOS_DIVERSAS_DE_INDIGENAS.png" alt="Fotos de indígenas com pinturas corporais e artesanato" class="content-image-center">
-            </p>
+            
+            <div class="content-flex-wrapper">
+            
+                <div class="main-text-and-image">
+                    <p>
+                        Este é o espaço dedicado à filosofia de vida do povo Guarani. Explore a riqueza de sua cultura, seus rituais, artesanato e a conexão profunda com a natureza.
+                        <img src="FOTOS_DIVERSAS_DE_INDIGENAS.png" alt="Fotos de indígenas com pinturas corporais e artesanato" class="content-image-center">
+                    </p>
+                </div>
+            
+                <div class="chatbot-container-wrapper">
+                    <div class="chatbot-footer-link">
+                        <a href="#" id="chatbot-footer-button" aria-label="Falar com o Nhandereko Bot no Telegram">
+                            <p class="chatbot-footer-text">Nhandereko Bot</p>
+                            <img src="chatbot.gif" alt="Ícone de chatbot" class="chatbot-footer-icon">
+                        </a>
+                    </div>
+                </div>
+                
+            </div>
+            
         </div>
     </main>
 
@@ -327,16 +395,28 @@
     
     <script>
         document.addEventListener('DOMContentLoaded', (event) => {
-            const chatbotGif = document.getElementById('chatbot-gif'); 
+            const chatbotGifMenu = document.getElementById('chatbot-gif'); 
+            const chatbotFooterButton = document.getElementById('chatbot-footer-button'); 
             const popup = document.getElementById('popup');
             const closeBtn = document.getElementById('close-popup');
 
-            if (chatbotGif && popup && closeBtn) {
-                chatbotGif.addEventListener('click', (e) => {
-                    e.preventDefault(); 
-                    popup.style.display = 'flex';
-                });
+            const openPopup = (e) => {
+                e.preventDefault(); 
+                popup.style.display = 'flex';
+            }
 
+            // Listener para o botão do menu principal
+            if (chatbotGifMenu) {
+                chatbotGifMenu.addEventListener('click', openPopup);
+            }
+            
+            // Listener para a figura do chatbot próximo ao rodapé
+            if (chatbotFooterButton) {
+                chatbotFooterButton.addEventListener('click', openPopup);
+            }
+
+            // Lógica para fechar o popup
+            if (popup && closeBtn) {
                 closeBtn.addEventListener('click', () => {
                     popup.style.display = 'none';
                 });
