@@ -1,98 +1,184 @@
-/* ========================================================= */
-/* --- ESTILOS PADRONIZADOS PARA TODO O CORPO DA PÁGINA --- */
-/* ========================================================= */
+/* ================================================= */
+/* ESTILOS PARA O CHATBOT FLUTUANTE (WIDGET)         */
+/* ================================================= */
 
-/* --- Estilos para o Menu de Opções (.options-menu) --- */
-.options-menu {
-    display: flex;
-    justify-content: center;
-    padding: 20px 0;
-    /* Aplicando a estética de card e transparência leve */
-    background-color: rgba(240, 234, 214, 0.9); /* Cor de fundo clara semi-transparente */
-    margin: 20px auto;
-    max-width: 1200px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-}
-
-.option-button {
-    /* Mantendo o estilo de botão consistente com a paleta */
-    background-color: #8c2f1f;
-    color: #fff;
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-decoration: none;
-    margin: 0 10px;
-    font-weight: bold;
+/* Botão Flutuante (Icone que Abre) */
+#open-chat-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #D62828; /* Vermelho Principal */
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    font-size: 1.5em;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000; /* Garante que fique acima de outros elementos */
     transition: background-color 0.3s;
 }
 
-.option-button:hover {
-    background-color: #6a2419;
+#open-chat-btn:hover {
+    background-color: #A01C1C;
 }
 
-/* --- Estilos para o Conteúdo Principal (main .container) --- */
-main .container {
-    /* Transformando o conteúdo em um "card" branco */
-    background-color: #ffffff; 
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Sombra mais forte para destacar */
-    margin-top: 20px;
-    margin-bottom: 20px;
-    /* Garantindo que o conteúdo preencha a tela corretamente */
-    max-width: 1200px; 
-    box-sizing: border-box;
-    /* Sobrescreve o display:flex ou justify-content do container global */
-    display: block; 
+/* Container Principal do Widget */
+#guarani-chatbot-widget {
+    display: none; /* Inicialmente escondido pelo JS */
+    position: fixed;
+    bottom: 90px; /* Acima do botão flutuante */
+    right: 20px;
+    width: 100%;
+    max-width: 350px; /* Tamanho típico de widget de chat */
+    height: 450px;
+    background-color: #fff;
+    border: 2px solid #000000;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    overflow: hidden;
+    flex-direction: column; /* Usado quando o JS define display: flex */
+    font-family: Arial, sans-serif;
 }
 
-/* Ajustes de tipografia dentro do conteúdo */
-main h1 {
-    text-align: center;
-    color: #8c2f1f;
-    margin-top: 0; 
+/* Cabeçalho do Widget */
+#chat-header {
+    background-color: #8c2f1f; /* Cor do Nhandereko */
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-main p {
-    text-align: justify; /* Deixa o texto do corpo justificado */
-    line-height: 1.7;
-    max-width: 100%;
-    margin: 20px auto;
+#widget-title {
+    margin: 0;
+    font-size: 1.1em;
+    font-weight: bold;
 }
 
-.content-image-center {
-    display: block;
-    margin: 30px auto;
-    max-width: 80%;
-    height: auto;
-    border-radius: 8px; 
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+#close-chat-btn {
+    cursor: pointer;
+    font-size: 1.2em;
+    font-weight: bold;
+    opacity: 0.8;
+}
+#close-chat-btn:hover {
+    opacity: 1;
 }
 
-/* --- Estilos para o Rodapé (footer) --- */
-footer {
-    /* Combinando com o estilo do header: semi-transparente e arredondado */
-    background-color: rgba(106, 36, 25, 0.9); 
-    color: #fff;
-    padding: 20px 0;
-    text-align: center;
-    margin-top: 40px; 
-    border-radius: 10px 10px 0 0; /* Cantos arredondados na parte superior */
-    box-shadow: 0 -4px 6px rgba(0,0,0,0.2);
+/* Conteúdo da Caixa de Chat */
+.chat-box {
+    flex-grow: 1;
+    padding: 10px;
+    overflow-y: auto;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
 
-/* ========================================================= */
-/* --- Remova ou mantenha os estilos do Header (já atualizados) --- */
-/* ========================================================= */
-
-header {
-    background-color: rgba(140, 47, 31, 0.9); 
-    padding: 15px 0;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-    border-radius: 0 0 10px 10px; 
-    position: sticky; 
-    top: 0;
-    z-index: 999;
+/* Estilo das mensagens */
+.message {
+    padding: 8px 12px;
+    border-radius: 18px;
+    max-width: 85%;
+    word-wrap: break-word;
+    font-size: 0.9em;
 }
-/* ... (Mantenha os estilos do .logo, .nav-and-social, .menu-principal, .social-icons-header e seus a:hover) ... */
+
+.user-message {
+    align-self: flex-end;
+    background-color: #000000; /* Preto */
+    color: #FFC300; /* Amarelo/Ouro */
+    border-bottom-right-radius: 2px;
+}
+
+.bot-message {
+    align-self: flex-start;
+    background-color: #F77F00; /* Laranja Vívido */
+    color: #000000; /* Fonte preta */
+    border-bottom-left-radius: 2px;
+    box-shadow: 1px 1px 0px #D62828;
+}
+
+.bot-message p {
+    margin: 0;
+}
+
+/* Área de entrada */
+.input-area {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid #000000;
+}
+
+#user-input {
+    flex-grow: 1;
+    padding: 8px;
+    border: 1px solid #000000;
+    border-radius: 20px;
+    margin-right: 5px;
+    font-size: 0.9em;
+}
+
+#send-button {
+    background-color: #D62828; /* Vermelho Principal */
+    color: white;
+    border: none;
+    padding: 8px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#send-button:hover {
+    background-color: #A01C1C;
+}
+
+/* Estilo para as sugestões de perguntas */
+.suggestions {
+    margin-top: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.suggestion-button {
+    background-color: #000000;
+    color: #FFC300;
+    border: 1px solid #D62828;
+    padding: 6px 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.8em;
+    transition: opacity 0.3s;
+}
+
+.suggestion-button:hover {
+    opacity: 0.8;
+}
+
+/* Esconde elementos desnecessários no widget */
+header, footer {
+    display: none !important;
+}
+
+/* MEDIA QUERY para telas menores */
+@media (max-width: 500px) {
+    #guarani-chatbot-widget {
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        max-width: none;
+        height: 80vh;
+        border-radius: 0;
+    }
+}

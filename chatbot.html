@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nhandereko: Chatbot Guarani</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <h1>Nhandereko Chatbot 🌿</h1>
+        <p>Modo de Ser Guarani. Pergunte sobre a cultura e a vida nas aldeias.</p>
+    </header>
+
+    <div class="chatbot-container">
+        <div id="chat-box" class="chat-box">
+            <div class="message bot-message">
+                <p>Mba'éichapa! Sou o Chat Nhandereko. Estou aqui para compartilhar o **modo de ser** do meu povo. Como posso te ajudar?</p>
+            </div>
+             <div class="message bot-message">
+                <div class="suggestions">
+                    <button class="suggestion-button" onclick="sendSuggestion('Como vivem as crianças indígenas?')">Crianças Indígenas?</button>
+                    <button class="suggestion-button" onclick="sendSuggestion('O que é Tekoha?')">O que é Tekoha?</button>
+                    <button class="suggestion-button" onclick="sendSuggestion('Qual a situação da saúde indígena?')">Saúde Indígena?</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="input-area">
+            <input type="text" id="user-input" placeholder="Digite sua pergunta...">
+            <button id="send-button"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+
+    <footer>
+        <p>Criado com base em informações sobre os povos Guarani (Mbya, Kaiowá e Ñandeva) e referências ao projeto Nhandereko.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<div id="guarani-chatbot-widget">
+    <div id="chat-header">
+        <h2 id="widget-title">Nhandereko Chatbot 🌿</h2>
+        <span id="close-chat-btn">X</span>
+    </div>
+    <div id="chat-box" class="chat-box">
+        <div class="message bot-message">
+            <p>Mba'éichapa! Sou o Chat Nhandereko. Estou aqui para compartilhar o **modo de ser** do meu povo. Como posso te ajudar?</p>
+        </div>
+         <div class="message bot-message">
+            <div class="suggestions">
+                <button class="suggestion-button" onclick="window.sendSuggestion('Como vivem as crianças indígenas?')">Crianças Indígenas?</button>
+                <button class="suggestion-button" onclick="window.sendSuggestion('O que é Tekoha?')">O que é Tekoha?</button>
+                <button class="suggestion-button" onclick="window.sendSuggestion('Qual a situação da saúde indígena?')">Saúde Indígena?</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="input-area">
+        <input type="text" id="user-input" placeholder="Digite sua pergunta...">
+        <button id="send-button"><i class="fas fa-paper-plane"></i></button>
+    </div>
+</div>
+
+<button id="open-chat-btn" title="Abrir Chatbot Nhandereko">
+    <i class="fas fa-comment-dots"></i>
+</button>
