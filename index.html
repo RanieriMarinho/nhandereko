@@ -12,7 +12,15 @@
             font-family: 'Roboto', Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f8f5f0;
+            /* PROPRIEDADES DE BACKGROUND DA IMAGEM FUNDO.jpg */
+            background-image: url('FUNDO.jpg');
+            background-size: cover; /* Faz a imagem cobrir todo o fundo */
+            background-attachment: fixed; /* Mantém a imagem fixa ao rolar a página */
+            background-position: center center; /* Centraliza a imagem */
+            
+            /* Cor de fallback (mantida do ajuste anterior, mas pode ser transparente ou uma cor escura) */
+            background-color: #f8f5f0; 
+            
             color: #333;
             box-sizing: border-box;
         }
@@ -103,7 +111,8 @@
             justify-content: center;
             align-items: center;
             padding: 20px 0;
-            background-color: #f0ead6;
+            /* Fundo branco removido: usando transparência para o background do body */
+            background-color: rgba(240, 234, 214, 0.2); 
             margin-top: 20px;
             border-radius: 10px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
@@ -144,11 +153,20 @@
         main {
             padding: 40px 0;
             text-align: center;
+            /* Fundo branco removido: usando transparência */
+            background-color: transparent; 
+            margin: 20px 0;
+            border-radius: 10px;
         }
         
         main h1 {
-            color: #8c2f1f;
+            /* Cor Branca Pura para efeito brilhante */
+            color: #FFFFFF; 
+            /* Sombra para o efeito "iluminado/brilhante" */
+            text-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 1px 1px 3px #000; 
             margin-bottom: 20px;
+            font-weight: bold; 
+            font-size: 2.2em; 
         }
 
         /* Novo wrapper Flexbox para layout lado a lado */
@@ -168,10 +186,15 @@
         }
         
         main p {
-            font-size: 1.1em;
+            font-size: 1.3em; 
             line-height: 1.6;
             margin: 20px 0; 
             text-align: justify;
+            /* Cor Branca Pura para efeito brilhante */
+            color: #FFFFFF; 
+            /* Sombra para o efeito "iluminado/brilhante" */
+            text-shadow: 0 0 3px #FFF, 1px 1px 2px #000; 
+            font-weight: bold; 
         }
 
         .content-image-center {
@@ -198,7 +221,8 @@
         .chatbot-footer-link a {
             display: inline-block; 
             text-decoration: none; 
-            color: #333; 
+            /* Cor ajustada para o hover/link padrao do tema */
+            color: #fff; 
             transition: opacity 0.3s;
             cursor: pointer; /* Adicionado para indicar que é clicável */
         }
@@ -207,9 +231,12 @@
         }
         .chatbot-footer-text {
             font-weight: bold;
-            color: #8c2f1f; 
+            /* Cor Branca Pura para efeito brilhante */
+            color: #FFFFFF; 
+            /* Sombra para o efeito "iluminado/brilhante" */
+            text-shadow: 0 0 3px #FFF, 1px 1px 2px #000; 
             margin: 0 0 5px 0;
-            font-size: 1.0em; 
+            font-size: 1.2em; 
             text-align: center; 
         }
         .chatbot-footer-icon {
@@ -474,8 +501,7 @@
                 <div class="main-text-and-image">
                     <p>
                         Este é o espaço dedicado à filosofia de vida do povo Guarani. Explore a riqueza de sua cultura, seus rituais, artesanato e a conexão profunda com a natureza.
-                        <img src="FOTOS_DIVERSAS_DE_INDIGENAS.png" alt="Fotos de indígenas com pinturas corporais e artesanato" class="content-image-center">
-                    </p>
+                        </p>
                 </div>
             
                 <div class="chatbot-container-wrapper">
