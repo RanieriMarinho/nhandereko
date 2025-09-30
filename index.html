@@ -288,18 +288,44 @@
             background-color: #D62828; /* Vermelho Principal */
             color: white;
             border: none;
-            border-radius: 50%;
-            width: 60px;
-            height: 60px;
+            /* ALTERADO: DEIXA DE SER 50% PARA FICAR MAIS RETANGULAR/VERTICAL */
+            border-radius: 10px; 
+            /* REMOVIDO: width: 90px; height: 90px; */
             font-size: 1.5em;
             cursor: pointer;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             z-index: 1000;
             transition: background-color 0.3s;
+            /* ALTERADO: ADICIONA ESPAÇAMENTO INTERNO */
+            padding: 5px; 
+            
+            /* ADICIONADO PARA LAYOUT VERTICAL */
+            display: flex; 
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 5px;
         }
 
         #open-chat-btn:hover {
             background-color: #A01C1C;
+        }
+        
+        /* NOVO ESTILO PARA O TEXTO "Chat Nhandereko" */
+        .open-chat-text {
+            font-size: 0.8em; 
+            font-weight: bold;
+            margin: 0;
+            line-height: 1.2;
+        }
+
+        /* Estilo para a imagem dentro do botão flutuante */
+        #open-chat-btn img { 
+            /* ALTERADO: TAMANHO DA IMAGEM REDUZIDO */
+            width: 60px; 
+            height: 60px;
+            object-fit: cover;
+            border-radius: 50%;
         }
 
         /* Container Principal do Widget */
@@ -503,15 +529,6 @@
                         Este é o espaço dedicado à filosofia de vida do povo Guarani. Explore a riqueza de sua cultura, seus rituais, artesanato e a conexão profunda com a natureza.
                         </p>
                 </div>
-            
-                <div class="chatbot-container-wrapper">
-                    <div class="chatbot-footer-link">
-                        <a href="#" onclick="openChatWidget(event)" aria-label="Falar com o Nhandereko Bot">
-                            <p class="chatbot-footer-text">Nhandereko Bot</p>
-                            <img src="chatbot.gif" alt="Ícone de chatbot" class="chatbot-footer-icon">
-                        </a>
-                    </div>
-                </div>
                 
             </div>
             
@@ -545,7 +562,7 @@
             // =================================================
 
             const widgetHTML = `
-                <div id="guarani-chatbot-widget" style="display: none;">
+                <div id="guarani-chatbot-widget" style="display: none;">Nhandere
                     <div id="chat-header">
                         <h2 id="widget-title">Nhandereko Chatbot 🌿</h2>
                         <span id="close-chat-btn">X</span>
@@ -570,7 +587,8 @@
                 </div>
 
                 <button id="open-chat-btn" title="Abrir Chatbot Nhandereko">
-                    <i class="fas fa-comment-dots"></i>
+                    <span class="open-chat-text">Nhandereko Chatbot</span>
+                    <img src="chatbot.gif" alt="Abrir Chatbot">
                 </button>
             `;
 
