@@ -12,13 +12,13 @@
             font-family: 'Roboto', Arial, sans-serif;
             margin: 0;
             padding: 0;
-            /* PROPRIEDADES DE BACKGROUND DA IMAGEM FUNDO.jpg */
-            background-image: url('FUNDO.jpg');
-            background-size: cover; /* Faz a imagem cobrir todo o fundo */
-            background-attachment: fixed; /* Mantém a imagem fixa ao rolar a página */
-            background-position: center center; /* Centraliza a imagem */
+            /* PROPRIEDADES DE BACKGROUND DA IMAGEM FUNDO.jpg REMOVIDAS */
+            /* background-image: url('FUNDO.jpg');
+            background-size: cover; 
+            background-attachment: fixed;
+            background-position: center center; */
             
-            /* Cor de fallback (mantida do ajuste anterior, mas pode ser transparente ou uma cor escura) */
+            /* Cor de fallback mantida */
             background-color: #f8f5f0; 
             
             color: #333;
@@ -160,10 +160,10 @@
         }
         
         main h1 {
-            /* Cor Branca Pura para efeito brilhante */
-            color: #FFFFFF; 
-            /* Sombra para o efeito "iluminado/brilhante" */
-            text-shadow: 0 0 5px #FFF, 0 0 10px #FFF, 1px 1px 3px #000; 
+            /* Cor Branca Pura para efeito brilhante (Ajustada para a cor de fundo clara) */
+            color: #333; 
+            /* Sombra removida ou ajustada para fundo claro */
+            text-shadow: none; 
             margin-bottom: 20px;
             font-weight: bold; 
             font-size: 2.2em; 
@@ -176,6 +176,8 @@
             gap: 20px;
             margin: 0 auto;
             align-items: flex-start;
+            flex-direction: column; /* Força que texto e imagem fiquem empilhados no centro */
+            align-items: center;
         }
 
         /* Bloco principal de texto e imagem */
@@ -190,11 +192,11 @@
             line-height: 1.6;
             margin: 20px 0; 
             text-align: justify;
-            /* Cor Branca Pura para efeito brilhante */
-            color: #FFFFFF; 
-            /* Sombra para o efeito "iluminado/brilhante" */
-            text-shadow: 0 0 3px #FFF, 1px 1px 2px #000; 
-            font-weight: bold; 
+            /* Cor ajustada para o fundo claro */
+            color: #333; 
+            /* Sombra removida ou ajustada para fundo claro */
+            text-shadow: none; 
+            font-weight: normal; /* Normalizado para melhor leitura */
         }
 
         .content-image-center {
@@ -203,6 +205,17 @@
             display: block;
             margin: 30px 0;
             border-radius: 8px;
+        }
+
+        /* NOVO ESTILO PARA A IMAGEM INSERIDA */
+        .content-image-center-inserted {
+            max-width: 100%; 
+            width: 800px; /* Limita a largura máxima para desktop */
+            height: auto;
+            display: block;
+            margin: 30px auto; /* Centraliza a imagem */
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
         
         /* Container do Chatbot (ao lado da imagem principal) */
@@ -222,7 +235,7 @@
             display: inline-block; 
             text-decoration: none; 
             /* Cor ajustada para o hover/link padrao do tema */
-            color: #fff; 
+            color: #333; 
             transition: opacity 0.3s;
             cursor: pointer; /* Adicionado para indicar que é clicável */
         }
@@ -231,10 +244,10 @@
         }
         .chatbot-footer-text {
             font-weight: bold;
-            /* Cor Branca Pura para efeito brilhante */
-            color: #FFFFFF; 
-            /* Sombra para o efeito "iluminado/brilhante" */
-            text-shadow: 0 0 3px #FFF, 1px 1px 2px #000; 
+            /* Cor ajustada para fundo claro */
+            color: #333; 
+            /* Sombra removida ou ajustada para fundo claro */
+            text-shadow: none; 
             margin: 0 0 5px 0;
             font-size: 1.2em; 
             text-align: center; 
@@ -476,6 +489,10 @@
                 height: 80vh;
                 border-radius: 0;
             }
+            
+            .content-image-center-inserted {
+                width: 90%; 
+            }
         }
 
     </style>
@@ -530,7 +547,8 @@
                         </p>
                 </div>
                 
-            </div>
+                <img src="FOTOS_DIVERSAS_DE_INDIGENAS.png" alt="Fotos diversas de indígenas Guarani e seus padrões culturais" class="content-image-center-inserted">
+                </div>
             
         </div>
     </main>
