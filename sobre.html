@@ -6,390 +6,8 @@
     <title>Nhandereko - Sobre</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        /* Estilos Globais */
-        body {
-            /* CORRIGIDO: Font-family para Roboto */
-            font-family: 'Roboto', Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f8f5f0;
-            color: #333;
-            box-sizing: border-box;
-        }
-
-        /* Container Principal */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        
-        /* ADICIONADO: Estilo da imagem no topo para a mesma configuração que index.html */
-        .header-image {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        /* Menu Superior */
-        header {
-            background-color: #8c2f1f;
-            padding: 15px 0;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-        }
-
-        header .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            flex-direction: row; /* Garante que o container do header se comporta como uma linha */
-        }
-        
-        /* Novo wrapper para alinhar Menu Principal e Redes Sociais no Header */
-        .nav-and-social {
-            display: flex;
-            align-items: center;
-            gap: 20px; 
-        }
-
-        .logo {
-            font-size: 2em;
-            font-weight: bold;
-            color: #fff;
-            text-decoration: none;
-        }
-
-        .menu-principal ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-        }
-
-        .menu-principal li {
-            margin-left: 20px;
-        }
-
-        .menu-principal a {
-            color: #fff;
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s;
-        }
-
-        .menu-principal a:hover {
-            color: #e9b384;
-        }
-        
-        /* Estilos dos Ícones Sociais no Header */
-        .social-icons-header {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .social-icons-header a {
-            color: #fff;
-            font-size: 1.5em; /* Tamanho padrão */
-            transition: color 0.3s;
-        }
-        
-        .social-icons-header a:hover {
-            color: #e9b384;
-        }
-
-
-        /* Menu de Opções (abaixo do header) */
-        .options-menu {
-            display: flex;
-            justify-content: center;
-            align-items: center; /* Alinha itens verticalmente */
-            padding: 20px 0;
-            background-color: #f0ead6;
-            margin-top: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            width: 100%;
-        }
-
-        .options-menu a {
-            background-color: #8c2f1f;
-            color: #fff;
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            margin: 0 10px;
-            font-weight: bold;
-            transition: background-color 0.3s;
-        }
-
-        .options-menu a:hover {
-            background-color: #6a2419;
-        }
-        
-        /* Estilo do botão do Chatbot no menu */
-        .chatbot-button {
-            display: flex;
-            align-items: center;
-            gap: 8px; /* Espaço entre o texto e o ícone GIF */
-            cursor: pointer;
-        }
-        
-        .chatbot-gif-icon {
-            width: 25px; /* Tamanho menor para encaixar no menu */
-            height: 25px;
-            border-radius: 50%;
-        }
-
-        /* Conteúdo Principal */
-        main {
-            padding: 40px 0;
-            text-align: center;
-        }
-        
-        main h1 {
-            color: #8c2f1f;
-            margin-bottom: 20px;
-        }
-
-        main p {
-            font-size: 1.1em;
-            line-height: 1.6;
-            max-width: 800px;
-            margin: 20px auto;
-            text-align: justify;
-        }
-
-        .volunturismo-image {
-            max-width: 100%;
-            height: auto;
-            display: block;
-            margin: 30px auto;
-            border-radius: 8px;
-        }
-
-        /* Rodapé */
-        footer {
-            background-color: #6a2419;
-            color: #fff;
-            padding: 20px 0;
-            text-align: center;
-            width: 100%;
-        }
-
-        .copyright {
-            margin-top: 10px;
-        }
-
-        
-        /* ================================================= */
-        /* ESTILOS PARA O CHATBOT WIDGET FLUTUANTE (COPIADO DE INDEX.HTML) */
-        /* ================================================= */
-
-        /* Botão Flutuante (Icone que Abre) */
-        #open-chat-btn {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: #D62828; /* Vermelho Principal */
-            color: white;
-            border: none;
-            /* ALTERADO: DEIXA DE SER 50% PARA FICAR MAIS RETANGULAR/VERTICAL */
-            border-radius: 10px; 
-            /* REMOVIDO: width: 90px; height: 90px; */
-            font-size: 1.5em;
-            cursor: pointer;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            z-index: 1000;
-            transition: background-color 0.3s;
-            /* ALTERADO: ADICIONA ESPAÇAMENTO INTERNO */
-            padding: 5px; 
-            
-            /* ADICIONADO PARA LAYOUT VERTICAL */
-            display: flex; 
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            gap: 5px;
-        }
-
-        #open-chat-btn:hover {
-            background-color: #A01C1C;
-        }
-        
-        /* NOVO ESTILO PARA O TEXTO "Chat Nhandereko" */
-        .open-chat-text {
-            font-size: 0.8em; 
-            font-weight: bold;
-            margin: 0;
-            line-height: 1.2;
-        }
-
-        /* Estilo para a imagem dentro do botão flutuante */
-        #open-chat-btn img { 
-            /* ALTERADO: TAMANHO DA IMAGEM REDUZIDO */
-            width: 60px; 
-            height: 60px;
-            object-fit: cover;
-            border-radius: 50%;
-        }
-
-        /* Container Principal do Widget */
-        #guarani-chatbot-widget {
-            display: none; /* Inicialmente escondido */
-            position: fixed;
-            bottom: 90px;
-            right: 20px;
-            width: 100%;
-            max-width: 350px;
-            height: 450px;
-            background-color: #fff;
-            border: 2px solid #000000;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            z-index: 1000;
-            overflow: hidden;
-            flex-direction: column; 
-            font-family: Arial, sans-serif;
-        }
-
-        /* Cabeçalho do Widget */
-        #chat-header {
-            background-color: #8c2f1f;
-            color: white;
-            padding: 15px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        #widget-title {
-            margin: 0;
-            font-size: 1.1em;
-            font-weight: bold;
-        }
-
-        #close-chat-btn {
-            cursor: pointer;
-            font-size: 1.2em;
-            font-weight: bold;
-            opacity: 0.8;
-        }
-        #close-chat-btn:hover {
-            opacity: 1;
-        }
-
-        /* Conteúdo da Caixa de Chat */
-        .chat-box {
-            flex-grow: 1;
-            padding: 10px;
-            overflow-y: auto;
-            border-bottom: 1px solid #eee;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        /* Estilo das mensagens */
-        .message {
-            padding: 8px 12px;
-            border-radius: 18px;
-            max-width: 85%;
-            word-wrap: break-word;
-            font-size: 0.9em;
-        }
-
-        .user-message {
-            align-self: flex-end;
-            background-color: #000000; /* Preto */
-            color: #FFC300; /* Amarelo/Ouro */
-            border-bottom-right-radius: 2px;
-        }
-
-        .bot-message {
-            align-self: flex-start;
-            background-color: #F77F00; /* Laranja Vívido */
-            color: #000000; /* Fonte preta */
-            border-bottom-left-radius: 2px;
-            box-shadow: 1px 1px 0px #D62828;
-        }
-
-        .bot-message p {
-            margin: 0;
-        }
-
-        /* Área de entrada */
-        .input-area {
-            display: flex;
-            padding: 10px;
-            border-top: 1px solid #000000;
-        }
-
-        #user-input {
-            flex-grow: 1;
-            padding: 8px;
-            border: 1px solid #000000;
-            border-radius: 20px;
-            margin-right: 5px;
-            font-size: 0.9em;
-        }
-
-        #send-button {
-            background-color: #D62828;
-            color: white;
-            border: none;
-            padding: 8px;
-            border-radius: 50%;
-            cursor: pointer;
-            width: 35px;
-            height: 35px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        /* Estilo para as sugestões de perguntas */
-        .suggestions {
-            margin-top: 5px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 5px;
-        }
-
-        .suggestion-button {
-            background-color: #000000;
-            color: #FFC300;
-            border: 1px solid #D62828;
-            padding: 6px 10px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-size: 0.8em;
-        }
-
-        /* ==================================== */
-        /* MEDIA QUERIES PARA RESPONSIVIDADE   */
-        /* ==================================== */
-        @media (max-width: 768px) {
-            
-            /* (Restante das Media Queries da página principal omitido para brevidade) */
-
-            /* Ajuste para o Widget em Mobile */
-            #guarani-chatbot-widget {
-                bottom: 0;
-                right: 0;
-                width: 100%;
-                max-width: none;
-                height: 80vh;
-                border-radius: 0;
-            }
-        }
-        
-    </style>
+    
+    <link rel="stylesheet" href="nhandereko-sobre.css">
 </head>
 <body>
     
@@ -430,12 +48,105 @@
     <main>
         <div class="container">
             <h1>Sobre o Nhandereko</h1>
+            
             <p>
-                Em tradução simples, Nhandereko ou Nhanderekó significa "modo de vida do povo guarani".
-                Representa onde a vida está e o relacionamento da vida com tudo que existe: os corpos, o espaço e o ambiente. Assim, Nhandereko está interligado com todo o território, que para o povo Guarani representa a vida, contemplando todos os seres vivos, florestas, rios, plantas e animais.
+                Nhandereko ou Nhanderekó é muito mais que uma simples tradução; é o conceito fundamental e a espinha dorsal do 'modo de vida do povo Guarani'. Ele representa a própria essência da existência e o relacionamento sagrado entre a vida e o universo que a cerca. Para os Guarani, Nhandereko é a manifestação de um território vivo. É a profunda interconexão entre os corpos, o espaço e o ambiente, onde toda a vida — os rios, as florestas, as plantas e os animais — é uma parte integral e inseparável do seu ser. Viver o Nhandereko é honrar essa totalidade.
             </p>
             <img src="nhandereko.png" alt="Pessoas e artesanato do povo Guarani" class="volunturismo-image">
-        </div>
+            
+            <section class="faq-section">
+                <h2>Perguntas Frequentes e Relatos Guarani</h2>
+
+                <div class="faq-item">
+                    <h3>O que é ser Cacique de uma Aldeia?</h3>
+                    <p>O Cacique é o chefe administrativo e político da aldeia, sendo também o integrante mais experiente e o representante maior da organização social da comunidade.</p>
+                    <div class="relato-box">
+                        <strong>Relato da Aldeia Paranapuã (São Vicente – SP):</strong> Segundo o Cacique Ronildo, ser cacique é lidar diretamente com as questões jurídicas e sociais, garantindo que a comunidade seja vista, respeitada e que seus direitos sejam preservados.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Os jovens e adolescentes têm estímulo para se tornarem Caciques?</h3>
+                    <p>Sim. O exemplo de lideranças jovens, como o Cacique João Antônio Tapajós, que começou no movimento indígena desde cedo (seu pai era cacique) e é coordenador do Conselho Indígena Tapajós Arapiuns (PA), demonstra esse estímulo. Eles veem nos mais velhos "espelhos e apoios", observando como lideram e tratam as pessoas.</p>
+                    <div class="relato-box">
+                        <strong>Relato da Aldeia Paranapuã:</strong> Os adolescentes que se interessam geralmente estão sempre atentos às notícias e movimentações políticas, tanto fora quanto dentro da aldeia. Todos têm a oportunidade de se tornarem caciques.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Como surgiram/surgem as Aldeias (segundo a ciência)?</h3>
+                    <p>As populações tupis (ancestrais de alguns povos) estavam em crescimento e foram margeando os rios ou a costa litorânea, em busca de terras férteis para a agricultura. Esse fenômeno começou há cerca de 2,1 mil anos e atingiu seu pico no ano 1000.</p>
+                    <div class="relato-box">
+                        <strong>Relato da Aldeia Paranapuã:</strong> Segundo o Cacique, a Aldeia surgiu através de visões.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Como funciona o cultivo de alimentos nas aldeias?</h3>
+                    <p>Entre as diferentes populações indígenas, a roça é uma atividade praticada por homens e mulheres, mas as atividades que realizam não são as mesmas.</p>
+                    <div class="relato-box">
+                        <strong>Relato da Aldeia Paranapuã:</strong> Os habitantes da aldeia não cultivam alimentos em grande escala, plantando apenas o suficiente para consumo próprio, com plantações de milho e **mandioca**, entre outros.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Como as comunidades lidam com roupas?</h3>
+                    <p>O vestuário indígena é bastante variado. Há povos que usam basicamente tangas e cintos, e há indígenas que se vestem "à maneira ocidental" no dia a dia, usando trajes típicos em solenidades e festas.</p>
+                    <div class="relato-box">
+                        <strong>Relato da Aldeia Paranapuã:</strong> Segundo o cacique, eles não têm costume de confeccionar as roupas. Elas geralmente são compradas ou doadas. No entanto, a comunidade deixou de pedir doações devido ao estado em que as roupas chegavam.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>As aldeias têm autorização para caçar?</h3>
+                    <p>Não. A caça no Brasil é proibida desde 1976. Há apenas uma exceção para caçar Javaporco, com a autorização do IBAMA.</p>
+                    <div class="relato-box">
+                        <strong>Relato da Aldeia Paranapuã:</strong> Segundo o Cacique Ronildo, eles não têm autorização para caçar, podendo apenas realizar pequenas roças e colheitas.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Como é a ligação das aldeias com os esportes?</h3>
+                    <p>Existe um forte vínculo com o esporte e a cultura, como demonstrado pelos Jogos dos Povos Indígenas no Brasil, um encontro esportivo e cultural realizado desde 1996, geralmente nos dias 19, 20 e 21 de abril.</p>
+                    <div class="relato-box">
+                        <strong>Relato da Aldeia Paranapuã:</strong> A comunidade é muito ativa e ligada aos esportes. Segundo o depoimento do cacique, jovens e adultos praticam futebol, tiro de zarabatana e arco e flecha, entre outros.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Como as comunidades lidam com as limitações impostas pelo governo?</h3>
+                    <p>A paralisação dos processos de demarcação e o abandono de medidas de proteção territorial pelo governo federal resultaram no aumento da violência contra os povos indígenas. No entanto, a luta e a resistência dos povos indígenas exibiu grande ousadia política nos últimos anos.</p>
+                    <div class="relato-box">
+                        <strong>Relato da Aldeia Paranapuã:</strong> A princípio, a aldeia Paranapuã não podia receber visitas, realizar roças ou caças, tendo seu espaço extremamente limitado. Hoje, a aldeia já pode receber visitas de turistas, mas ainda seguem muito limitados, causando chateação a toda comunidade.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Quantas pessoas vivem atualmente na Aldeia Paranapuã?</h3>
+                    <p>Embora dados específicos de cada aldeia não sejam levantados, o IBGE (2022) aponta que a quantidade de indígenas vivendo em áreas rurais caiu de 63,7% em 2010 para 46% em 2024.</p>
+                    <div class="relato-box">
+                        <strong>Relato da Aldeia Paranapuã:</strong> Atualmente, vivem cerca de 22 famílias na aldeia Paranapuã.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Como ocorre a divulgação dos Artesanatos nas aldeias?</h3>
+                    <p>O cadastramento dos indígenas na Subsecretaria do Trabalho Artesanal nas Comunidades (Sutaco) oportunizou a comercialização dos produtos em feiras e o reconhecimento do artesanato como profissão.</p>
+                    <div class="relato-box">
+                        <strong>Relato da Aldeia Paranapuã:</strong> A comunidade realiza a venda do artesanato dentro da aldeia e em feiras para as quais são convidados a participar.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Como as comunidades lidam com a tecnologia?</h3>
+                    <p>Muitas aldeias indígenas já tiveram acesso à tecnologia através de celulares, computadores, TV e videogames. Mesmo em locais distantes onde o acesso à internet não é possível, os aparelhos são usados para jogos, fotografias ou para produzir vídeos.</p>
+                    <div class="relato-box">
+                        <strong>Relato da Aldeia Paranapuã:</strong> Segundo o Cacique Ronildo, eles têm contato com o celular e Internet, porém, com algumas limitações.
+                    </div>
+                </div>
+
+            </section>
+            </div>
     </main>
 
     <footer>
@@ -533,8 +244,7 @@
                 <br><br>
                 **Gostaria de um relato feito por indígenas da Aldeia Paranapuã de São Vicente – SP?**
                 <br>
-                Para fazer uma visitação ou conhecer esta ou outras aldeias, entre no site: 
-                <a href="http://www.nhandereko.com.br" target="_blank">www.nhandereko.com.br</a>
+                (As informações de contato foram removidas a pedido do usuário.)
             `;
 
             // Mapeamento de perguntas e respostas sobre os Guarani (Conhecimento Base Local)

@@ -1,0 +1,415 @@
+/* ==================================== */
+/* ESTILOS DA PÁGINA SOBRE.HTML         */
+/* ==================================== */
+
+/* Estilos Globais */
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f5f0;
+    color: #333;
+    box-sizing: border-box;
+}
+
+/* Container Principal */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Imagem de Topo */
+.header-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Menu Superior (Header) */
+header {
+    background-color: #8c2f1f;
+    padding: 15px 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.nav-and-social {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo {
+    font-size: 2em;
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+}
+
+.menu-principal ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.menu-principal li {
+    margin-left: 20px;
+}
+
+.menu-principal a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.menu-principal a:hover {
+    color: #e9b384;
+}
+
+/* Ícones Sociais no Header */
+.social-icons-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.social-icons-header a {
+    color: #fff;
+    font-size: 1.5em;
+    transition: color 0.3s;
+}
+
+.social-icons-header a:hover {
+    color: #e9b384;
+}
+
+/* Menu de Opções (abaixo do header) */
+.options-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+    background-color: #f0ead6;
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    width: 100%;
+}
+
+.options-menu a {
+    background-color: #8c2f1f;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.options-menu a:hover {
+    background-color: #6a2419;
+}
+
+/* Conteúdo Principal */
+main {
+    padding: 40px 0;
+    text-align: center;
+}
+
+main h1 {
+    color: #8c2f1f;
+    margin-bottom: 20px;
+}
+
+main p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 20px auto;
+    text-align: justify;
+}
+
+.volunturismo-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 30px auto;
+    border-radius: 8px;
+}
+
+/* Rodapé */
+footer {
+    background-color: #6a2419;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    width: 100%;
+}
+
+.copyright {
+    margin-top: 10px;
+}
+
+/* ==================================== */
+/* ESTILOS DA SEÇÃO FAQ (Adicionada)   */
+/* ==================================== */
+
+.faq-section {
+    width: 100%;
+    max-width: 900px; /* Um pouco mais largo que o parágrafo principal */
+    margin: 40px auto;
+    text-align: left;
+}
+
+.faq-section h2 {
+    color: #6a2419; /* Cor mais escura, seguindo a paleta */
+    border-bottom: 2px solid #e9b384; /* Linha de destaque */
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+    font-size: 1.8em;
+}
+
+.faq-item {
+    margin-bottom: 25px;
+    border-left: 5px solid #8c2f1f; /* Cor principal de destaque */
+    padding-left: 15px;
+    background-color: #fcfcfc;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.faq-item h3 {
+    color: #8c2f1f; /* Cor do cabeçalho */
+    margin: 0 0 10px 0;
+    font-size: 1.2em;
+}
+
+.faq-item p {
+    font-size: 1em;
+    line-height: 1.5;
+    margin: 5px 0;
+    text-align: justify; /* Mantém o alinhamento justificado do site */
+}
+
+/* Estilo para destacar o relato ou fonte */
+.relato-box {
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #f0ead6; /* Cor de fundo suave */
+    border: 1px dashed #8c2f1f;
+    border-radius: 4px;
+    font-style: italic;
+    font-size: 0.95em;
+    color: #444;
+}
+
+.relato-box strong {
+    color: #6a2419;
+}
+
+
+/* ================================================= */
+/* ESTILOS PARA O CHATBOT WIDGET FLUTUANTE           */
+/* (Estes devem ser mantidos no CSS)                 */
+/* ================================================= */
+
+/* Botão Flutuante (Icone que Abre) */
+#open-chat-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #D62828; /* Vermelho Principal */
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.5em;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    transition: background-color 0.3s;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 5px;
+}
+
+#open-chat-btn:hover {
+    background-color: #A01C1C;
+}
+
+.open-chat-text {
+    font-size: 0.8em;
+    font-weight: bold;
+    margin: 0;
+    line-height: 1.2;
+}
+
+#open-chat-btn img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+/* Container Principal do Widget */
+#guarani-chatbot-widget {
+    display: none;
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    width: 100%;
+    max-width: 350px;
+    height: 450px;
+    background-color: #fff;
+    border: 2px solid #000000;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    overflow: hidden;
+    flex-direction: column;
+    font-family: Arial, sans-serif;
+}
+
+/* Cabeçalho do Widget */
+#chat-header {
+    background-color: #8c2f1f;
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#widget-title {
+    margin: 0;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+#close-chat-btn {
+    cursor: pointer;
+    font-size: 1.2em;
+    font-weight: bold;
+    opacity: 0.8;
+}
+#close-chat-btn:hover {
+    opacity: 1;
+}
+
+/* Conteúdo da Caixa de Chat */
+.chat-box {
+    flex-grow: 1;
+    padding: 10px;
+    overflow-y: auto;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* Estilo das mensagens */
+.message {
+    padding: 8px 12px;
+    border-radius: 18px;
+    max-width: 85%;
+    word-wrap: break-word;
+    font-size: 0.9em;
+}
+
+.user-message {
+    align-self: flex-end;
+    background-color: #000000;
+    color: #FFC300;
+    border-bottom-right-radius: 2px;
+}
+
+.bot-message {
+    align-self: flex-start;
+    background-color: #F77F00;
+    color: #000000;
+    border-bottom-left-radius: 2px;
+    box-shadow: 1px 1px 0px #D62828;
+}
+
+.bot-message p {
+    margin: 0;
+}
+
+/* Área de entrada */
+.input-area {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid #000000;
+}
+
+#user-input {
+    flex-grow: 1;
+    padding: 8px;
+    border: 1px solid #000000;
+    border-radius: 20px;
+    margin-right: 5px;
+    font-size: 0.9em;
+}
+
+#send-button {
+    background-color: #D62828;
+    color: white;
+    border: none;
+    padding: 8px;
+    border-radius: 50%;
+    cursor: pointer;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilo para as sugestões de perguntas */
+.suggestions {
+    margin-top: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.suggestion-button {
+    background-color: #000000;
+    color: #FFC300;
+    border: 1px solid #D62828;
+    padding: 6px 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.8em;
+}
+
+/* ==================================== */
+/* MEDIA QUERIES PARA RESPONSIVIDADE   */
+/* ==================================== */
+@media (max-width: 768px) {
+    #guarani-chatbot-widget {
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        max-width: none;
+        height: 80vh;
+        border-radius: 0;
+    }
+}
