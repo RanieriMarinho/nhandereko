@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nhandereko - Volunturismo</title>
+    <title>Nhandereko - Galeria de Fotos</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
@@ -23,7 +23,7 @@
             margin: 0 auto;
             padding: 0 20px;
         }
-        
+
         /* ADICIONADO: Estilo da imagem no topo para a mesma configuração que index.html */
         .header-image {
             width: 100%;
@@ -49,7 +49,7 @@
         .nav-and-social {
             display: flex;
             align-items: center;
-            gap: 20px; /* Espaço entre o menu principal e os ícones sociais */
+            gap: 20px; 
         }
 
         .logo {
@@ -148,23 +148,34 @@
         
         main h1 {
             color: #8c2f1f;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
         }
 
-        main p {
-            font-size: 1.1em;
-            line-height: 1.6;
-            max-width: 800px;
-            margin: 20px auto;
-            text-align: justify;
+        /* Estilos da Galeria */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 0 20px;
         }
 
-        .volunturismo-image {
-            max-width: 100%;
-            height: auto;
-            display: block;
-            margin: 30px auto;
+        .gallery-item {
+            background-color: #fff;
             border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 250px; 
+            object-fit: cover;
+            display: block;
         }
 
         /* Rodapé */
@@ -174,218 +185,68 @@
             padding: 20px 0;
             text-align: center;
             width: 100%;
+            margin-top: 40px; 
         }
 
         .copyright {
             margin-top: 10px;
         }
 
-        
-        /* ================================================= */
-        /* ESTILOS PARA O CHATBOT WIDGET FLUTUANTE           */
-        /* ================================================= */
-
-        /* Botão Flutuante (Icone que Abre) */
-        #open-chat-btn {
+        /* Pop-up Style */
+        .popup-container {
+            display: none; 
             position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: #D62828; /* Vermelho Principal */
-            color: white;
-            border: none;
-            /* ALTERADO: DEIXA DE SER 50% PARA FICAR MAIS RETANGULAR/VERTICAL */
-            border-radius: 10px; 
-            /* REMOVIDO: width: 90px; height: 90px; */
-            font-size: 1.5em;
-            cursor: pointer;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            z-index: 1000;
-            transition: background-color 0.3s;
-            /* ALTERADO: ADICIONA ESPAÇAMENTO INTERNO */
-            padding: 5px; 
-            
-            /* ADICIONADO PARA LAYOUT VERTICAL */
-            display: flex; 
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            gap: 5px;
-        }
-
-        #open-chat-btn:hover {
-            background-color: #A01C1C;
-        }
-
-        /* NOVO ESTILO PARA O TEXTO "Chat Nhandereko" */
-        .open-chat-text {
-            font-size: 0.8em; 
-            font-weight: bold;
-            margin: 0;
-            line-height: 1.2;
-        }
-
-        /* Estilo para a imagem dentro do botão flutuante */
-        #open-chat-btn img { 
-            /* ALTERADO: TAMANHO DA IMAGEM REDUZIDO */
-            width: 60px; 
-            height: 60px;
-            object-fit: cover;
-            border-radius: 50%;
-        }
-
-        /* Container Principal do Widget */
-        #guarani-chatbot-widget {
-            display: none; /* Inicialmente escondido */
-            position: fixed;
-            bottom: 90px;
-            right: 20px;
+            z-index: 1001;
+            left: 0;
+            top: 0;
             width: 100%;
-            max-width: 350px;
-            height: 450px;
-            background-color: #fff;
-            border: 2px solid #000000;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            z-index: 1000;
-            overflow: hidden;
-            flex-direction: column; 
-            font-family: Arial, sans-serif;
-        }
-
-        /* Cabeçalho do Widget */
-        #chat-header {
-            background-color: #8c2f1f;
-            color: white;
-            padding: 15px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        #widget-title {
-            margin: 0;
-            font-size: 1.1em;
-            font-weight: bold;
-        }
-
-        #close-chat-btn {
-            cursor: pointer;
-            font-size: 1.2em;
-            font-weight: bold;
-            opacity: 0.8;
-        }
-        #close-chat-btn:hover {
-            opacity: 1;
-        }
-
-        /* Conteúdo da Caixa de Chat */
-        .chat-box {
-            flex-grow: 1;
-            padding: 10px;
-            overflow-y: auto;
-            border-bottom: 1px solid #eee;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        /* Estilo das mensagens */
-        .message {
-            padding: 8px 12px;
-            border-radius: 18px;
-            max-width: 85%;
-            word-wrap: break-word;
-            font-size: 0.9em;
-        }
-
-        .user-message {
-            align-self: flex-end;
-            background-color: #000000; /* Preto */
-            color: #FFC300; /* Amarelo/Ouro */
-            border-bottom-right-radius: 2px;
-        }
-
-        .bot-message {
-            align-self: flex-start;
-            background-color: #F77F00; /* Laranja Vívido */
-            color: #000000; /* Fonte preta */
-            border-bottom-left-radius: 2px;
-            box-shadow: 1px 1px 0px #D62828;
-        }
-
-        .bot-message p {
-            margin: 0;
-        }
-
-        /* Área de entrada */
-        .input-area {
-            display: flex;
-            padding: 10px;
-            border-top: 1px solid #000000;
-        }
-
-        #user-input {
-            flex-grow: 1;
-            padding: 8px;
-            border: 1px solid #000000;
-            border-radius: 20px;
-            margin-right: 5px;
-            font-size: 0.9em;
-        }
-
-        #send-button {
-            background-color: #D62828;
-            color: white;
-            border: none;
-            padding: 8px;
-            border-radius: 50%;
-            cursor: pointer;
-            width: 35px;
-            height: 35px;
-            display: flex;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
             justify-content: center;
             align-items: center;
         }
 
-        /* Estilo para as sugestões de perguntas */
-        .suggestions {
-            margin-top: 5px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 5px;
+        .popup-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 400px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            text-align: center;
         }
 
-        .suggestion-button {
-            background-color: #000000;
-            color: #FFC300;
-            border: 1px solid #D62828;
-            padding: 6px 10px;
-            border-radius: 20px;
+        .close-btn {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close-btn:hover,
+        .close-btn:focus {
+            color: #000;
+            text-decoration: none;
             cursor: pointer;
-            font-size: 0.8em;
         }
 
-        /* ==================================== */
-        /* MEDIA QUERIES PARA RESPONSIVIDADE   */
-        /* ==================================== */
-        @media (max-width: 768px) {
-            
-            /* (Restante das Media Queries da página principal omitido para brevidade) */
-
-            /* Ajuste para o Widget em Mobile */
-            #guarani-chatbot-widget {
-                bottom: 0;
-                right: 0;
-                width: 100%;
-                max-width: none;
-                height: 80vh;
-                border-radius: 0;
-            }
+        .popup-content a {
+            display: inline-block;
+            margin-top: 15px;
+            background-color: #8c2f1f;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
-
+    
     <img src="FAIXA4_BRANCA.png" alt="Padrão cultural Guarani" class="header-image"> 
 
     <header>
@@ -418,18 +279,45 @@
         <a href="hospedagem.html" class="option-button">Visitações</a>
         <a href="passeios.html" class="option-button">Passeios</a>
         <a href="artesanatos.html" class="option-button">Artesanatos</a>
+        
+        <a href="#" class="option-button chatbot-button" id="chatbot-gif">
+            <p style="margin: 0; font-weight: bold;">Fale Comigo!</p>
+            <img src="chatbot.gif" alt="Ícone de chatbot" class="chatbot-gif-icon">
+        </a>
     </div>
 
     <main>
         <div class="container">
-            <h1>Volunturismo</h1>
-            <p>
-                Em Nhandereko, o volunturismo é uma experiência de imersão total na cultura Guarani, onde você pode participar de atividades diárias, aprender sobre seus saberes ancestrais e auxiliar em iniciativas que fortalecem a comunidade e preservam suas tradições.
-            </p>
-            <p>
-                O volunturismo é uma modalidade de viagem que combina turismo com trabalho voluntário. É uma oportunidade para vivenciar a cultura local de maneira mais profunda, contribuindo com projetos comunitários, ambientais ou sociais.
-            </p>
-             <img src="volunturismo.png" alt="Pôr do sol em um rio com indígenas em uma canoa" class="volunturismo-image">
+            <h1>Galeria de Fotos</h1>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="etnoturismo.png" alt="Pessoas em uma cabana">
+                </div>
+                <div class="gallery-item">
+                    <img src="nhandereko.png" alt="Artesanato indígena">
+                </div>
+                <div class="gallery-item">
+                    <img src="imagem3.jpg" alt="Pessoas em um rio">
+                </div>
+                <div class="gallery-item">
+                    <img src="imagem4.jpg" alt="Crianças indígenas">
+                </div>
+                <div class="gallery-item">
+                    <img src="volunturismo.png" alt="Pessoa em um barco no pôr do sol">
+                </div>
+                <div class="gallery-item">
+                    <img src="imagem7.jpg" alt="Barco na praia">
+                </div>
+                <div class="gallery-item">
+                    <img src="imagem8.jpg" alt="Criança com milho">
+                </div>
+                <div class="gallery-item">
+                    <img src="imagem9.jpg" alt="Mulher indígena com cestos">
+                </div>
+                <div class="gallery-item">
+                    <img src="imagem10.jpg" alt="Homem indígena com artesanato">
+                </div>
+            </div>
         </div>
     </main>
 
@@ -439,220 +327,41 @@
         </div>
     </footer>
     
+    <div id="popup" class="popup-container">
+        <div class="popup-content">
+            <span class="close-btn" id="close-popup">&times;</span>
+            <h2>Nhandereko Bot</h2>
+            <p>Para interagir com o nosso bot no Telegram, clique no botão abaixo.</p>
+            <a href="https://t.me/nhanderebot" target="_blank">Conversar com o Bot</a>
+        </div>
+    </div>
+    
     <script>
-        // Função Global para ser chamada pelos links do menu e da figura lateral
-        function openChatWidget(e) {
-            e.preventDefault(); 
-            const chatWidget = document.getElementById('guarani-chatbot-widget');
-            const openBtn = document.getElementById('open-chat-btn');
-            
-            if (chatWidget && openBtn) {
-                chatWidget.style.display = 'flex';
-                openBtn.style.display = 'none';
-                document.getElementById('user-input').focus();
-                document.getElementById('chat-box').scrollTop = document.getElementById('chat-box').scrollHeight;
-            }
-        }
-        
-        document.addEventListener('DOMContentLoaded', () => {
-            // =================================================
-            // 1. INJEÇÃO DO WIDGET HTML NO BODY
-            // =================================================
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const chatbotGif = document.getElementById('chatbot-gif'); 
+            const popup = document.getElementById('popup');
+            const closeBtn = document.getElementById('close-popup');
 
-            const widgetHTML = `
-                <div id="guarani-chatbot-widget" style="display: none;">
-                    <div id="chat-header">
-                        <h2 id="widget-title">Nhandereko Chatbot 🌿</h2>
-                        <span id="close-chat-btn">X</span>
-                    </div>
-                    <div id="chat-box" class="chat-box">
-                        <div class="message bot-message">
-                            <p>Mba'éichapa! Sou o Chat Nhandereko. Estou aqui para compartilhar o **modo de ser** do meu povo. Como posso te ajudar?</p>
-                        </div>
-                         <div class="message bot-message">
-                            <div class="suggestions">
-                                <button class="suggestion-button" onclick="window.sendSuggestion('Como vivem as crianças indígenas?')">Crianças Indígenas?</button>
-                                <button class="suggestion-button" onclick="window.sendSuggestion('O que é Tekoha?')">O que é Tekoha?</button>
-                                <button class="suggestion-button" onclick="window.sendSuggestion('Qual a situação da saúde indígena?')">Saúde Indígena?</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="input-area">
-                        <input type="text" id="user-input" placeholder="Digite sua pergunta...">
-                        <button id="send-button"><i class="fas fa-paper-plane"></i></button>
-                    </div>
-                </div>
-
-                <button id="open-chat-btn" title="Abrir Chatbot Nhandereko">
-                    <span class="open-chat-text">Chat Nhandereko</span>
-                    <img src="chatbot.gif" alt="Abrir Chatbot">
-                </button>
-            `;
-
-            document.body.insertAdjacentHTML('beforeend', widgetHTML);
-
-
-            // =================================================
-            // 2. VARIÁVEIS E LÓGICA DE ABRIR/FECHAR DO WIDGET
-            // =================================================
-            const chatWidget = document.getElementById('guarani-chatbot-widget');
-            const openBtn = document.getElementById('open-chat-btn');
-            const closeBtn = document.getElementById('close-chat-btn');
-            
-            // Lógica para abrir usando o botão flutuante
-            openBtn.addEventListener('click', () => {
-                chatWidget.style.display = 'flex';
-                openBtn.style.display = 'none';
-                document.getElementById('user-input').focus();
-                document.getElementById('chat-box').scrollTop = document.getElementById('chat-box').scrollHeight;
-            });
-
-            // Lógica para fechar
-            closeBtn.addEventListener('click', () => {
-                chatWidget.style.display = 'none';
-                openBtn.style.display = 'block';
-            });
-
-
-            // =================================================
-            // 3. LÓGICA DO CHATBOT (Conhecimento Base e Funções)
-            // =================================================
-            
-            const chatBox = document.getElementById('chat-box');
-            const userInput = document.getElementById('user-input');
-            const sendButton = document.getElementById('send-button');
-
-            // Informações de contato padronizadas
-            const contactInfo = `
-                <br><br>
-                **Gostaria de um relato feito por indígenas da Aldeia Paranapuã de São Vicente – SP?**
-                <br>
-                Para fazer uma visitação ou conhecer esta ou outras aldeias, entre no site: 
-                <a href="http://www.nhandereko.com.br" target="_blank">www.nhandereko.com.br</a>
-            `;
-
-            // Mapeamento de perguntas e respostas sobre os Guarani (Conhecimento Base Local)
-            const knowledgeBase = {
-                // PERGUNTAS INICIAIS
-                "o que é tekoha": "Tekoha é o termo Guarani para 'o lugar onde se é'. É mais do que um espaço físico; é o território sagrado onde o modo de vida Guarani pode ser plenamente realizado.",
-                "quem são os guarani": "Os Guarani são um dos maiores povos indígenas da América do Sul, divididos em subgrupos, principalmente os Mbya, os Kaiowá e os Ñandeva. Eles compartilham uma língua e uma cosmovisão rica.",
-                "o que é a terra sem males": "A **Yvy Marãe'ỹ** (Terra Sem Males) é um conceito central na espiritualidade Guarani. É um lugar mítico onde não há sofrimento, doença ou maldade.",
-                
-                // PERGUNTAS SOBRE ALDEIAS E CULTURA (mantidas do projeto anterior)
-                "como vivem as crianças indígenas": "Segundo a Funai, as crianças indígenas aprendem os ofícios e os rituais do seu povo através da **observação e da imitação dos adultos**, participando ativamente da vida social e familiar." + contactInfo,
-                "como é o trabalho de parto das mulheres indígenas": "O parto frequentemente envolve **rituais ancestrais** e **apoio comunitário**. Posições verticais, como a de cócoras, são comuns. (Fonte: Terras Indígenas no Brasil)." + contactInfo,
-                "como é a gravidez de mulheres indígenas": "A gravidez é vista como um estado de **saúde e vitalidade**, e o parto é geralmente natural. As fases da Lua podem ser usadas para marcar o calendário. (Fonte: Terras Indígenas no Brasil)." + contactInfo,
-                "como as aldeias indígenas surgiram": "As primeiras aldeias surgiram a partir da descoberta da **agricultura e da domesticação de animais**, o que levou à sedentarização. (Fonte: Mundo Educação)." + contactInfo,
-                "como vivem as mulheres indígenas": "Segundo a Funai, as mulheres indígenas buscam o **protagonismo na luta por direitos** e na preservação de seus territórios, apesar dos desafios de saúde e violência." + contactInfo,
-                "qual a situação da saúde indígena": "A situação é complexa e delicada. A Funai aponta para alta mortalidade infantil e desnutrição crônica em muitas aldeias." + contactInfo,
-                "como os indígenas participam da política brasileira": "Sua participação ocorre através do **protagonismo na gestão da FUNAI**, em cargos de liderança, e pelo engajamento nas políticas de demarcação de terras e etnodesenvolvimento. (Fonte: Funai)." + contactInfo,
-                "quais alimentos de origem indígena são consumidos hoje": "Alimentos como **mandioca**, **milho** e frutas como **açaí**, **guaraná** e **pinhão** estão 100% ligados aos povos originários. (Fonte: Funai)." + contactInfo,
-                "como são os rituais indígenas": "São celebrações que marcam **ritos de passagem**, práticas espirituais e reforçam laços comunitários através de danças, cantos e pinturas corporais. (Fonte: Funai)." + contactInfo,
-                "o que é xamã": "O **Xamã** ou **Pajé** é o líder espiritual dos povos originários, considerado um mensageiro entre o mundo terreno e o espiritual. (Fonte: Terra + Portal Amazônia)." + contactInfo,
-                
-                // PERGUNTAS GERAIS E BOAS VINDAS
-                "mba'éichapa": "Mba'éichapa! (Tudo bem?)",
-                "olá": "Olá! Seja bem-vindo(a) ao Nhandereko. Posso te contar mais sobre o modo de ser do povo Guarani.",
-                "bom dia": "Bom dia! Que Nhanderu (Nosso Grande Pai) ilumine seu dia. Mba'éichapa!",
-                
-                // RESPOSTA PADRÃO
-                "default": "Não tenho informações específicas sobre isso. Você poderia tentar perguntar sobre **crianças indígenas**, **Tekoha**, ou **saúde indígena**? Digite 'ajuda' para ver mais sugestões."
-            };
-
-            /** Adiciona uma nova mensagem à caixa de chat. */
-            function appendMessage(text, sender) {
-                const messageDiv = document.createElement('div');
-                messageDiv.classList.add('message', `${sender}-message`);
-                messageDiv.innerHTML = `<p>${text}</p>`; 
-                chatBox.appendChild(messageDiv);
-                
-                chatBox.scrollTop = chatBox.scrollHeight;
-            }
-
-            /** Processa a entrada do usuário e gera a resposta do bot. */
-            function getBotResponse(input) {
-                const normalizedInput = input.toLowerCase().trim();
-                
-                if (knowledgeBase[normalizedInput]) {
-                    return knowledgeBase[normalizedInput];
-                }
-                
-                for (const key in knowledgeBase) {
-                    if (normalizedInput.includes(key) && key !== "default") {
-                        return knowledgeBase[key];
-                    }
-                }
-                
-                if (normalizedInput.includes("ajuda") || normalizedInput.includes("sugestoes")) {
-                     return "Aqui estão algumas sugestões de perguntas que você pode fazer sobre a cultura Guarani e a vida nas aldeias:";
-                }
-
-                return knowledgeBase["default"];
-            }
-            
-            /** Lida com o envio da mensagem do usuário. */
-            function sendMessage() {
-                const input = userInput.value.trim();
-                if (input === '') return;
-
-                appendMessage(input, 'user');
-                userInput.value = '';
-
-                setTimeout(() => {
-                    const botResponse = getBotResponse(input);
-                    appendMessage(botResponse, 'bot');
-                    
-                    if (botResponse === knowledgeBase["default"] || botResponse.includes("sugestões")) {
-                        addSuggestions();
-                    }
-                }, 800);
-            }
-            
-            /** Adiciona botões de sugestão à caixa de chat. */
-            function addSuggestions() {
-                const suggestionsDiv = document.createElement('div');
-                suggestionsDiv.classList.add('message', 'bot-message');
-                
-                const suggestionsContainer = document.createElement('div');
-                suggestionsContainer.classList.add('suggestions');
-                
-                const suggestions = [
-                    "Como vivem as crianças indígenas?",
-                    "O que é Xamã?",
-                    "Como os indígenas participam da política brasileira?",
-                    "Quais alimentos de origem indígena são consumidos hoje?"
-                ];
-                
-                suggestions.forEach(suggestion => {
-                    const button = document.createElement('button');
-                    button.classList.add('suggestion-button');
-                    button.textContent = suggestion;
-                    button.onclick = () => window.sendSuggestion(suggestion);
-                    suggestionsContainer.appendChild(button);
+            if (chatbotGif && popup && closeBtn) {
+                // Abre o pop-up ao clicar no novo botão
+                chatbotGif.addEventListener('click', (e) => {
+                    e.preventDefault(); 
+                    popup.style.display = 'flex';
                 });
-                
-                suggestionsDiv.appendChild(suggestionsContainer);
-                chatBox.appendChild(suggestionsDiv);
-                chatBox.scrollTop = chatBox.scrollHeight;
+
+                // Fecha o pop-up ao clicar no botão de fechar
+                closeBtn.addEventListener('click', () => {
+                    popup.style.display = 'none';
+                });
+
+                // Fecha o pop-up ao clicar fora dele
+                window.addEventListener('click', (event) => {
+                    if (event.target === popup) {
+                        popup.style.display = 'none';
+                    }
+                });
             }
-
-            // Função global para ser usada pelos botões de sugestão e botões iniciais
-            window.sendSuggestion = function(text) {
-                userInput.value = text;
-                sendMessage();
-            };
-
-            // Event Listeners (associados aos elementos injetados)
-            sendButton.addEventListener('click', sendMessage);
-            
-            userInput.addEventListener('keypress', (e) => {
-                if (e.key === 'Enter') {
-                    sendMessage();
-                }
-            });
         });
     </script>
 </body>
 </html>
-```
