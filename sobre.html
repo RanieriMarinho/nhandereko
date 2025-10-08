@@ -9,7 +9,7 @@
     
     <style>
         /* ==================================== */
-        /* ESTILOS DA PÁGINA SOBRE.HTML         */
+        /* ESTILOS DA PÁGINA SOBRE.HTML (SEU CÓDIGO CSS) */
         /* ==================================== */
 
         /* Estilos Globais */
@@ -153,6 +153,15 @@
             text-align: justify;
         }
 
+        .content-image-center { /* Usa a classe .volunturismo-image original do HTML anterior para consistência */
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 30px auto;
+            border-radius: 8px;
+        }
+        
+        /* Corrigindo a classe da imagem do corpo para coincidir com a que estava no CSS original */
         .volunturismo-image {
             max-width: 100%;
             height: auto;
@@ -175,7 +184,7 @@
         }
 
         /* ==================================== */
-        /* ESTILOS DA SEÇÃO FAQ (Adicionada)   */
+        /* ESTILOS DA SEÇÃO FAQ (Adicionada)    */
         /* ==================================== */
 
         .faq-section {
@@ -235,7 +244,7 @@
 
         /* ================================================= */
         /* ESTILOS PARA O CHATBOT WIDGET FLUTUANTE           */
-        /* (Estes devem ser mantidos no CSS)                 */
+        /* (Seu código vibrante)                             */
         /* ================================================= */
 
         /* Botão Flutuante (Icone que Abre) */
@@ -411,9 +420,34 @@
         }
 
         /* ==================================== */
-        /* MEDIA QUERIES PARA RESPONSIVIDADE   */
+        /* MEDIA QUERIES PARA RESPONSIVIDADE    */
         /* ==================================== */
         @media (max-width: 768px) {
+            header .container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .nav-and-social {
+                flex-direction: column;
+                gap: 15px;
+                width: 100%;
+            }
+            .menu-principal ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+            .menu-principal li {
+                margin-left: 0;
+            }
+            .options-menu {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .options-menu a {
+                margin: 0;
+                width: 80%;
+            }
             #guarani-chatbot-widget {
                 bottom: 0;
                 right: 0;
@@ -427,7 +461,7 @@
 </head>
 <body>
     
-    <img src="FAIXA4_BRANCA.png" alt="Padrão cultural Guarani" class="header-image"> 
+    <img src="image_27384b.png" alt="Padrão cultural Guarani" class="header-image"> 
 
     <header>
         <div class="container">
@@ -552,238 +586,128 @@
                         <strong>Relato da Aldeia Paranapuã:</strong> A comunidade realiza a venda do artesanato dentro da aldeia e em feiras para as quais são convidados a participar.
                     </div>
                 </div>
-
+                
                 <div class="faq-item">
-                    <h3>Como as comunidades lidam com a tecnologia?</h3>
+                    <h3>Como as comunidades indígenas lidam com a tecnologia?</h3>
                     <p>Muitas aldeias indígenas já tiveram acesso à tecnologia através de celulares, computadores, TV e videogames. Mesmo em locais distantes onde o acesso à internet não é possível, os aparelhos são usados para jogos, fotografias ou para produzir vídeos.</p>
                     <div class="relato-box">
-                        <strong>Relato da Aldeia Paranapuã:</strong> Segundo o Cacique Ronildo, eles têm contato com o celular e Internet, porém, com algumas limitações.
+                        <strong>Relato do Cacique Ronildo sobre a tecnologia:</strong>
+                        <p>
+                            “A meu ver, a tecnologia, principalmente o celular: ele veio para ajudar bastante, inclusive as comunidades que vivem distantes das cidades. Conseguimos nos comunicar com os parentes de outros Estados e até de outros países. Ajuda bastante, desde que saiba utilizar de forma correta, essas são as orientações que passamos para os jovens da comunidade.”
+                        </p>
+                        <p style="margin-top: 10px;">
+                            **Caso queira fazer uma visitação ou conhecer esta ou outras aldeias, entre em contato através da nossa página de Etnoturismo ou Fale Conosco.**
+                        </p>
                     </div>
                 </div>
-
+                
             </section>
-            </div>
+        </div>
     </main>
 
     <footer>
         <div class="container">
+            <div class="social-icons footer-icons">
+                <a href="#" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://t.me/nhanderebot" target="_blank" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+            </div>
             <p class="copyright">&copy; 2024 Nhandereko. Todos os direitos reservados.</p>
         </div>
     </footer>
+
+    <button id="open-chat-btn">
+        <p class="open-chat-text">Fale Conosco!</p>
+        <img src="chatbot.gif" alt="Ícone de Chatbot">
+    </button>
+
+    <div id="guarani-chatbot-widget">
+        <div id="chat-header">
+            <h4 id="widget-title">Nhandereko Chatbot</h4>
+            <span id="close-chat-btn">&times;</span>
+        </div>
+        <div class="chat-box" id="chat-box">
+            <div class="bot-message message">
+                <p>Olá! Eu sou o Nhandereko Bot. Como posso te ajudar hoje?</p>
+            </div>
+            <div class="suggestions">
+                <button class="suggestion-button">O que é Nhandereko?</button>
+                <button class="suggestion-button">Como visitar uma aldeia?</button>
+                <button class="suggestion-button">Fale sobre artesanato.</button>
+            </div>
+        </div>
+        <div class="input-area">
+            <input type="text" id="user-input" placeholder="Digite sua pergunta...">
+            <button id="send-button"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
     
     <script>
-        // Função Global para ser chamada pelos links do menu e da figura lateral
-        function openChatWidget(e) {
-            e.preventDefault(); 
-            const chatWidget = document.getElementById('guarani-chatbot-widget');
-            const openBtn = document.getElementById('open-chat-btn');
-            
-            if (chatWidget && openBtn) {
-                chatWidget.style.display = 'flex';
-                openBtn.style.display = 'none';
-                document.getElementById('user-input').focus();
-                document.getElementById('chat-box').scrollTop = document.getElementById('chat-box').scrollHeight;
-            }
-        }
-        
+        // LÓGICA JAVASCRIPT PARA FUNCIONAMENTO DO CHATBOT
         document.addEventListener('DOMContentLoaded', () => {
-            // =================================================
-            // 1. INJEÇÃO DO WIDGET HTML NO BODY
-            // =================================================
-
-            // O elemento 'div' do widget foi corrigido, pois no arquivo anterior ele abria a tag com 'Nhandere' e não fechava corretamente.
-            const widgetHTML = `
-                <div id="guarani-chatbot-widget" style="display: none;">
-                    <div id="chat-header">
-                        <h2 id="widget-title">Nhandereko Chatbot 🌿</h2>
-                        <span id="close-chat-btn">X</span>
-                    </div>
-                    <div id="chat-box" class="chat-box">
-                        <div class="message bot-message">
-                            <p>Mba'éichapa! Sou o Chat Nhandereko. Estou aqui para compartilhar o **modo de ser** do meu povo. Como posso te ajudar?</p>
-                        </div>
-                         <div class="message bot-message">
-                            <div class="suggestions">
-                                <button class="suggestion-button" onclick="window.sendSuggestion('Como vivem as crianças indígenas?')">Crianças Indígenas?</button>
-                                <button class="suggestion-button" onclick="window.sendSuggestion('O que é Tekoha?')">O que é Tekoha?</button>
-                                <button class="suggestion-button" onclick="window.sendSuggestion('Qual a situação da saúde indígena?')">Saúde Indígena?</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="input-area">
-                        <input type="text" id="user-input" placeholder="Digite sua pergunta...">
-                        <button id="send-button"><i class="fas fa-paper-plane"></i></button>
-                    </div>
-                </div>
-
-                <button id="open-chat-btn" title="Abrir Chatbot Nhandereko">
-                    <span class="open-chat-text">Chat Nhandereko</span>
-                    <img src="chatbot.gif" alt="Abrir Chatbot">
-                </button>
-            `;
-
-            document.body.insertAdjacentHTML('beforeend', widgetHTML);
-
-
-            // =================================================
-            // 2. VARIÁVEIS E LÓGICA DE ABRIR/FECHAR DO WIDGET
-            // =================================================
-            const chatWidget = document.getElementById('guarani-chatbot-widget');
             const openBtn = document.getElementById('open-chat-btn');
             const closeBtn = document.getElementById('close-chat-btn');
-            
-            // Lógica para abrir usando o botão flutuante
-            openBtn.addEventListener('click', () => {
-                chatWidget.style.display = 'flex';
-                openBtn.style.display = 'none';
-                document.getElementById('user-input').focus();
-                document.getElementById('chat-box').scrollTop = document.getElementById('chat-box').scrollHeight;
-            });
-
-            // Lógica para fechar
-            closeBtn.addEventListener('click', () => {
-                chatWidget.style.display = 'none';
-                openBtn.style.display = 'block';
-            });
-
-
-            // =================================================
-            // 3. LÓGICA DO CHATBOT (Conhecimento Base e Funções)
-            // =================================================
-            
+            const chatWidget = document.getElementById('guarani-chatbot-widget');
             const chatBox = document.getElementById('chat-box');
             const userInput = document.getElementById('user-input');
             const sendButton = document.getElementById('send-button');
+            const suggestionButtons = document.querySelectorAll('.suggestion-button');
 
-            // Informações de contato padronizadas
-            const contactInfo = `
-                <br><br>
-                **Gostaria de um relato feito por indígenas da Aldeia Paranapuã de São Vicente – SP?**
-                <br>
-                Para fazer uma visitação ou conhecer esta ou outras aldeias, entre no site: 
-                <a href="http://www.nhandereko.com.br" target="_blank">www.nhandereko.com.br</a>
-            `;
-            // NOTA: A info de contato do index.html foi usada, pois a do sobre.html estava incompleta.
+            // 1. Abrir/Fechar Widget
+            openBtn.addEventListener('click', () => {
+                chatWidget.style.display = 'flex';
+                openBtn.style.display = 'none';
+            });
 
-            // Mapeamento de perguntas e respostas sobre os Guarani (Conhecimento Base Local)
-            const knowledgeBase = {
-                // PERGUNTAS INICIAIS
-                "o que é tekoha": "Tekoha é o termo Guarani para 'o lugar onde se é'. É mais do que um espaço físico; é o território sagrado onde o modo de vida Guarani pode ser plenamente realizado.",
-                "quem são os guarani": "Os Guarani são um dos maiores povos indígenas da América do Sul, divididos em subgrupos, principalmente os Mbya, os Kaiowá e os Ñandeva. Eles compartilham uma língua e uma cosmovisão rica.",
-                "o que é a terra sem males": "A **Yvy Marãe'ỹ** (Terra Sem Males) é um conceito central na espiritualidade Guarani. É um lugar mítico onde não há sofrimento, doença ou maldade.",
-                
-                // PERGUNTAS SOBRE ALDEIAS E CULTURA (mantidas do projeto anterior)
-                "como vivem as crianças indígenas": "Segundo a Funai, as crianças indígenas aprendem os ofícios e os rituais do seu povo através da **observação e da imitação dos adultos**, participando ativamente da vida social e familiar." + contactInfo,
-                "como é o trabalho de parto das mulheres indígenas": "O parto frequentemente envolve **rituais ancestrais** e **apoio comunitário**. Posições verticais, como a de cócoras, são comuns. (Fonte: Terras Indígenas no Brasil)." + contactInfo,
-                "como é a gravidez de mulheres indígenas": "A gravidez é vista como um estado de **saúde e vitalidade**, e o parto é geralmente natural. As fases da Lua podem ser usadas para marcar o calendário. (Fonte: Terras Indígenas no Brasil)." + contactInfo,
-                "como as aldeias indígenas surgiram": "As primeiras aldeias surgiram a partir da descoberta da **agricultura e da domesticação de animais**, o que levou à sedentarização. (Fonte: Mundo Educação)." + contactInfo,
-                "como vivem as mulheres indígenas": "Segundo a Funai, as mulheres indígenas buscam o **protagonismo na luta por direitos** e na preservação de seus territórios, apesar dos desafios de saúde e violência." + contactInfo,
-                "qual a situação da saúde indígena": "A situação é complexa e delicada. A Funai aponta para alta mortalidade infantil e desnutrição crônica em muitas aldeias." + contactInfo,
-                "como os indígenas participam da política brasileira": "Sua participação ocorre através do **protagonismo na gestão da FUNAI**, em cargos de liderança, e pelo engajamento nas políticas de demarcação de terras e etnodesenvolvimento. (Fonte: Funai)." + contactInfo,
-                "quais alimentos de origem indígena são consumidos hoje": "Alimentos como **mandioca**, **milho** e frutas como **açaí**, **guaraná** e **pinhão** estão 100% ligados aos povos originários. (Fonte: Funai)." + contactInfo,
-                "como são os rituais indígenas": "São celebrações que marcam **ritos de passagem**, práticas espirituais e reforçam laços comunitários através de danças, cantos e pinturas corporais. (Fonte: Funai)." + contactInfo,
-                "o que é xamã": "O **Xamã** ou **Pajé** é o líder espiritual dos povos originários, considerado um mensageiro entre o mundo terreno e o espiritual. (Fonte: Terra + Portal Amazônia)." + contactInfo,
-                
-                // PERGUNTAS GERAIS E BOAS VINDAS
-                "mba'éichapa": "Mba'éichapa! (Tudo bem?)",
-                "olá": "Olá! Seja bem-vindo(a) ao Nhandereko. Posso te contar mais sobre o modo de ser do povo Guarani.",
-                "bom dia": "Bom dia! Que Nhanderu (Nosso Grande Pai) ilumine seu dia. Mba'éichapa!",
-                
-                // RESPOSTA PADRÃO
-                "default": "Não tenho informações específicas sobre isso. Você poderia tentar perguntar sobre **crianças indígenas**, **Tekoha**, ou **saúde indígena**? Digite 'ajuda' para ver mais sugestões."
-            };
-
-            /** Adiciona uma nova mensagem à caixa de chat. */
-            function appendMessage(text, sender) {
-                const messageDiv = document.createElement('div');
-                messageDiv.classList.add('message', `${sender}-message`);
-                messageDiv.innerHTML = `<p>${text}</p>`; 
-                chatBox.appendChild(messageDiv);
-                
-                chatBox.scrollTop = chatBox.scrollHeight;
-            }
-
-            /** Processa a entrada do usuário e gera a resposta do bot. */
-            function getBotResponse(input) {
-                const normalizedInput = input.toLowerCase().trim();
-                
-                if (knowledgeBase[normalizedInput]) {
-                    return knowledgeBase[normalizedInput];
-                }
-                
-                for (const key in knowledgeBase) {
-                    if (normalizedInput.includes(key) && key !== "default") {
-                        return knowledgeBase[key];
-                    }
-                }
-                
-                if (normalizedInput.includes("ajuda") || normalizedInput.includes("sugestoes")) {
-                     return "Aqui estão algumas sugestões de perguntas que você pode fazer sobre a cultura Guarani e a vida nas aldeias:";
-                }
-
-                return knowledgeBase["default"];
-            }
+            closeBtn.addEventListener('click', () => {
+                chatWidget.style.display = 'none';
+                openBtn.style.display = 'flex';
+            });
             
-            /** Lida com o envio da mensagem do usuário. */
-            function sendMessage() {
-                const input = userInput.value.trim();
-                if (input === '') return;
+            // 2. Função de Envio de Mensagem (Simulação)
+            const sendMessage = (text) => {
+                if (text.trim() === '') return;
 
-                appendMessage(input, 'user');
+                // Adiciona mensagem do usuário
+                const userMsg = document.createElement('div');
+                userMsg.classList.add('message', 'user-message');
+                userMsg.innerHTML = `<p>${text}</p>`;
+                chatBox.appendChild(userMsg);
+                
+                // Limpa o campo
                 userInput.value = '';
 
-                setTimeout(() => {
-                    const botResponse = getBotResponse(input);
-                    appendMessage(botResponse, 'bot');
-                    
-                    if (botResponse === knowledgeBase["default"] || botResponse.includes("sugestões")) {
-                        addSuggestions();
-                    }
-                }, 800);
-            }
-            
-            /** Adiciona botões de sugestão à caixa de chat. */
-            function addSuggestions() {
-                const suggestionsDiv = document.createElement('div');
-                suggestionsDiv.classList.add('message', 'bot-message');
-                
-                const suggestionsContainer = document.createElement('div');
-                suggestionsContainer.classList.add('suggestions');
-                
-                const suggestions = [
-                    "Como vivem as crianças indígenas?",
-                    "O que é Xamã?",
-                    "Como os indígenas participam da política brasileira?",
-                    "Quais alimentos de origem indígena são consumidos hoje?"
-                ];
-                
-                suggestions.forEach(suggestion => {
-                    const button = document.createElement('button');
-                    button.classList.add('suggestion-button');
-                    button.textContent = suggestion;
-                    button.onclick = () => window.sendSuggestion(suggestion);
-                    suggestionsContainer.appendChild(button);
-                });
-                
-                suggestionsDiv.appendChild(suggestionsContainer);
-                chatBox.appendChild(suggestionsDiv);
+                // Scroll para o final
                 chatBox.scrollTop = chatBox.scrollHeight;
-            }
 
-            // Função global para ser usada pelos botões de sugestão e botões iniciais
-            window.sendSuggestion = function(text) {
-                userInput.value = text;
-                sendMessage();
+                // Simula resposta do bot após um pequeno atraso
+                setTimeout(() => {
+                    const botResponse = document.createElement('div');
+                    botResponse.classList.add('message', 'bot-message');
+                    // Simulação de resposta genérica
+                    botResponse.innerHTML = `<p>Obrigado pela sua pergunta sobre "${text}". Nossas informações mais detalhadas estão em nossa seção de FAQ! 😉</p>`; 
+                    chatBox.appendChild(botResponse);
+                    chatBox.scrollTop = chatBox.scrollHeight;
+                }, 1000); 
             };
-
-            // Event Listeners (associados aos elementos injetados)
-            sendButton.addEventListener('click', sendMessage);
             
+            // 3. Evento de Envio
+            sendButton.addEventListener('click', () => {
+                sendMessage(userInput.value);
+            });
+
             userInput.addEventListener('keypress', (e) => {
                 if (e.key === 'Enter') {
-                    sendMessage();
+                    sendMessage(userInput.value);
                 }
+            });
+
+            // 4. Evento dos Botões de Sugestão
+            suggestionButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    sendMessage(button.textContent);
+                });
             });
         });
     </script>

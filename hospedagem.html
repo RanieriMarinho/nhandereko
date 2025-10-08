@@ -304,6 +304,21 @@
             gap: 15px;
         }
         
+        /* === INÍCIO DA ALTERAÇÃO: Estilo da Imagem (Padrão a01.jpeg) === */
+        .pousada-info img {
+            width: 150px;           /* Largura fixa para manter o layout organizado */
+            height: 100px;          /* Altura fixa */
+            object-fit: cover;      /* Garante que a imagem preencha a área sem distorcer */
+            border-radius: 4px;     /* Bordas levemente arredondadas */
+            cursor: pointer;        /* Indica que a imagem é clicável (Lightbox) */
+            transition: opacity 0.3s;
+        }
+        
+        .pousada-info img:hover {
+            opacity: 0.85; /* Efeito suave ao passar o mouse */
+        }
+        /* === FIM DA ALTERAÇÃO === */
+
         /* Estilo para o nome da aldeia clicável */
         .pousada-info h3 {
              margin-top: 0;
@@ -473,12 +488,12 @@
     </main>
     
     <div id="imageModal" class="modal" onclick="closeModal()">
-        <span class="close" onclick="closeModal(event)">&times;</span> 
+        <span class="close" onclick="closeModal(event)">×</span> 
         <img class="modal-content" id="img01">
     </div>
     
     <div id="mapModal" class="modal" onclick="closeModal(event)">
-        <span class="close" onclick="closeModal(event)">&times;</span>
+        <span class="close" onclick="closeModal(event)">×</span>
         <div class="modal-content" id="map-content">
             <h2 style="color:white; text-align:center;">Localização Aproximada</h2>
             <div id="map-container"></div>
@@ -488,7 +503,7 @@
 
     <div id="popup" class="popup-container">
         <div class="popup-content">
-            <span class="close-btn" id="close-popup">&times;</span>
+            <span class="close-btn" id="close-popup">×</span>
             <h2>Nhandereko Bot</h2>
             <p>Para interagir com o nosso bot no Telegram, clique no botão abaixo.</p>
             <a href="https://t.me/nhanderebot" target="_blank">Conversar com o Bot</a>
@@ -504,7 +519,7 @@
                 <a href="https://t.me/nhanderebot" target="_blank" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
             </div>
             
-            <p class="copyright">&copy; 2024 Nhandereko. Todos os direitos reservados.</p>
+            <p class="copyright">© 2024 Nhandereko. Todos os direitos reservados.</p>
         </div>
     </footer>
 
@@ -564,7 +579,7 @@
 
         // --- BANCO DE DADOS SIMULADO ---
         const pousadas = { 
-            // --- ALDEIAS ORIGINAIS E SP (4 aldeias restantes: 1 RJ, 1 BA, 1 PE, 1 AM, 1 SP) ---
+            // --- ALDEIAS ORIGINAIS (1 RJ, 1 BA, 1 PE, 1 AM) ---
             'guarani': {
                 id: 'guarani',
                 nome: "Aldeia Tekoa Jataí (Guarani)",
@@ -597,6 +612,7 @@
                 indisponivel: ['2025-10-10', '2025-10-11'],
                 imagemUrl: "a04.jpeg" 
             },
+            // --- ALDEIAS DE SÃO PAULO (LITORAL E CAPITAL) ---
             'krukutu': {
                 id: 'krukutu',
                 nome: "Aldeia Krukutu (Guarani Mbya)",
@@ -605,7 +621,79 @@
                 indisponivel: ['2025-12-01', '2025-12-02', '2025-12-03'],
                 imagemUrl: "a05.jpeg" 
             },
-
+            // --- NOVAS ALDEIAS ADICIONADAS DO DOCUMENTO PDF (LITORAL SP) ---
+            'sp_tangara': {
+                id: 'sp_tangara',
+                nome: "Aldeia Tangará",
+                descricao: "Vivência Guarani Mbya na região de Itanhaém, com foco em tradições da Mata Atlântica e artesanato.",
+                valorDiaria: 165, cidade: "Itanhaém", uf: "SP", numQuartos: 3, 
+                indisponivel: ['2025-11-20'],
+                imagemUrl: "a26.jpeg" 
+            },
+            'sp_piacaguera': {
+                id: 'sp_piacaguera',
+                nome: "Sítio Piaçaguera (Peruíbe)",
+                descricao: "Sítio Guarani que abrange diversas aldeias (Tanigwá, Tabaçu, etc.). Local de forte concentração cultural e rituais.",
+                valorDiaria: 220, cidade: "Peruíbe", uf: "SP", numQuartos: 5, 
+                indisponivel: ['2025-12-24', '2025-12-25'],
+                imagemUrl: "a27.jpeg" 
+            },
+            'sp_tekoa_mirim': {
+                id: 'sp_tekoa_mirim',
+                nome: "Aldeia Tekoa Mirim",
+                descricao: "Comunidade Guarani Mbya na Serra do Mar em Praia Grande. Ideal para trilhas e ecoturismo.",
+                valorDiaria: 180, cidade: "Praia Grande", uf: "SP", numQuartos: 2, 
+                indisponivel: ['2026-01-01'],
+                imagemUrl: "a28.jpeg" 
+            },
+            'sp_rio_branco': {
+                id: 'sp_rio_branco',
+                nome: "Aldeia Rio Branco",
+                descricao: "Aldeia em área de difícil localização em Itanhaém (Emburá), com foco em preservação ambiental e recursos hídricos.",
+                valorDiaria: 130, cidade: "Itanhaém", uf: "SP", numQuartos: 3, 
+                indisponivel: [],
+                imagemUrl: "a29.jpeg" 
+            },
+            'sp_itaoca': {
+                id: 'sp_itaoca',
+                nome: "Aldeia Itaoca",
+                descricao: "Comunidade em Mongaguá, com forte presença em atividades de educação e cultura local.",
+                valorDiaria: 175, cidade: "Mongaguá", uf: "SP", numQuartos: 4, 
+                indisponivel: ['2025-11-05', '2025-11-06'],
+                imagemUrl: "a30.jpeg" 
+            },
+            'sp_aguapeu': {
+                id: 'sp_aguapeu',
+                nome: "Aldeia Aguapeú",
+                descricao: "Localizada em Mongaguá (Vila Vera Cruz). Foco em agricultura familiar e produção artesanal.",
+                valorDiaria: 150, cidade: "Mongaguá", uf: "SP", numQuartos: 2, 
+                indisponivel: [],
+                imagemUrl: "a31.jpeg" 
+            },
+            'sp_paranapua': {
+                id: 'sp_paranapua',
+                nome: "Aldeia Paranapuã",
+                descricao: "Aldeia próxima ao Parque Prainha em São Vicente. Foco em história, lendas e conexão com o mar.",
+                valorDiaria: 195, cidade: "São Vicente", uf: "SP", numQuartos: 3, 
+                indisponivel: ['2026-02-01'],
+                imagemUrl: "a32.jpeg" 
+            },
+            'sp_bananal': {
+                id: 'sp_bananal',
+                nome: "Aldeia Bananal",
+                descricao: "Comunidade Guarani na região de Peruíbe, conhecida por suas tradições de pesca, caça e manejo de plantas nativas.",
+                valorDiaria: 185, cidade: "Peruíbe", uf: "SP", numQuartos: 2, 
+                indisponivel: ['2025-10-15', '2025-10-16'],
+                imagemUrl: "a33.jpeg" 
+            },
+            'sp_rio_silveira': {
+                id: 'sp_rio_silveira',
+                nome: "Aldeia Rio Silveira",
+                descricao: "Uma das maiores aldeias do litoral de SP (Bertioga). Forte em eventos culturais, exposições e turismo de longa data.",
+                valorDiaria: 210, cidade: "Bertioga", uf: "SP", numQuartos: 5, 
+                indisponivel: ['2026-01-26', '2026-01-27'],
+                imagemUrl: "a34.jpeg" 
+            },
             // --- ALDEIAS GUARANI - RS, SC, PR, MS, RJ, ES, PA (19) ---
             'rs_nhu_poti': {
                 id: 'rs_nhu_poti',
